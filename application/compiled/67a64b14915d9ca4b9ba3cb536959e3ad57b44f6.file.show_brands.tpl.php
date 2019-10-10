@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-08-24 10:53:35
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:44:17
          compiled from "C:\xampp\htdocs\kass\application\views\show_brands.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:320495d60fa843aa5b5-57399663%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '67a64b14915d9ca4b9ba3cb536959e3ad57b44f6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\show_brands.tpl',
-      1 => 1566636811,
+      1 => 1570722233,
       2 => 'file',
     ),
   ),

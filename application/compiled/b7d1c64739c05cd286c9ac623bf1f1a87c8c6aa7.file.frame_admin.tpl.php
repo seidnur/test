@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-08-24 13:46:12
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:44:02
          compiled from "C:\xampp\htdocs\kass\application\views\frame_admin.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:63325d2da21d14d9c2-04259257%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b7d1c64739c05cd286c9ac623bf1f1a87c8c6aa7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\frame_admin.tpl',
-      1 => 1566647153,
+      1 => 1570722233,
       2 => 'file',
     ),
   ),
