@@ -4,9 +4,7 @@
             <a class="btn btn-warning btn-sm" href="sales"><span class="fa fa-list"></span> {lang('listing')}</a>
             <a class="btn btn-sm btn-success" href="sales/create/"> <span
                         class="fa fa-plus"></span> {lang('new_record')}</a>
-             <form action="sales/search" method="post" id="search_form">
-                {if isset($search_form)}{$search_form}{/if}
-            </form>
+
             <h3>
                 {if $selected_language=='english'}
                     {lang('listing')} {lang('of')} {lang("$table_name")}

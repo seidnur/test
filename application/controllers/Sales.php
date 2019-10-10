@@ -106,6 +106,7 @@ class Sales extends MY_controller
         $this->template->assign('import_data', $imports_set);
         $this->template->assign('import_fields', $import_fields);
 
+
         $this->template->assign('related_items', $items_set);
 
         $this->load->library('form_validation');
@@ -116,7 +117,8 @@ class Sales extends MY_controller
                 $this->template->assign('sales_fields', $fields);
                 $this->template->assign('metadata', $this->model_sales->metadata());
                 $this->template->assign('table_name', 'Sales');
-                $this->template->assign('template', 'form_sales');
+//                $this->template->assign('template', 'form_sales');
+                $this->template->assign('template', 'form_sale_item');
                 $this->template->display('frame_admin.tpl');
                 break;
             /**
@@ -137,20 +139,13 @@ class Sales extends MY_controller
                 $data_post['sale_itm_id'] = $this->input->post('sale_itm_id');
                 $data_post['sale_item_amount'] = $this->input->post('sell_quantity');
                 $data_post['sale_imp_id'] = $this->input->post('sale_imp_id');
-                $data_post['Date_sold'] = $this->currentDate;
+                $data_post['Date_sold'] = date('Y-m-d h:m:s');
                 $data_post['soled_by'] = $this->user;
-                $data_post['sold_price'] = $this->input->post('sell_price') + ($this->input->post('sell_price') * 0.15);
-                $data_post['sale_vat'] = intval($data_post['sale_item_amount'])
-                    * floatval($this->input->post('sell_price')) * 0.15;
-                $data_post['profit'] = intval($this->input->post('sell_quantity'))
-                    * (floatval($this->input->post('sell_price'))
-                        - floatval($this->input->post('imp_itm_unit_price'))
-                        - floatval($this->input->post('sell_price')) * 0.15
-                        + floatval($data_post['sale_vat'])
-                    );
-
-                $data_post['sale_remark'] = $this->input->post('sale_remark');
+                echo  $this->input->post('imp_itm_unit_price');
+                $data_post['sold_price'] = $this->input->post('sell_price');
+                $data_post['profit'] = $this->input->post('sell_quantity')*($this->input->post('sell_price') - $this->input->post('imp_itm_unit_price'));
                 $data_post['Sale_sub_total'] = intval($data_post['sale_item_amount']) * floatval($data_post['sold_price']);
+
                 if ($this->form_validation->run() == FALSE) {
                     $errors = validation_errors();
                     $this->template->assign('errors', $errors);
@@ -159,22 +154,22 @@ class Sales extends MY_controller
                     $this->template->assign('sales_fields', $fields);
                     $this->template->assign('metadata', $this->model_sales->metadata());
                     $this->template->assign('table_name', 'Sales');
-                    $this->template->assign('template', 'form_sales');
+                    $this->template->assign('template', 'form_sale_item');
                     $this->template->display('frame_admin.tpl');
                 } elseif ($this->form_validation->run() == TRUE) {
-// update table imports
-//previously sold amount of item
+                    // update table imports
+                    //previously sold amount of item
                     $impdata['imp_sold_amount'] = intval($this->input->post('imp_itm_sold_amount')) + intval($data_post['sale_item_amount']);
-//currently available amount of item
+                    //currently available amount of item
                     $impdata['imp_available_amount'] = intval($this->input->post('imp_itm_total_imported')) - intval($impdata['imp_sold_amount']);
-
 
                     $this->template->assign('action_mode', 'create');
                     $this->template->assign('sales_data', $data_post);
                     $this->template->assign('sales_fields', $fields);
                     $this->template->assign('metadata', $this->model_sales->metadata());
                     $this->template->assign('table_name', 'Sales');
-                    $this->template->assign('template', 'form_sales');
+                    $this->template->assign('template', 'form_sale_item');
+                    echo json_encode($data_post);
 
                     $insert_id = $this->model_sales->insert($data_post, $impdata);
                     $message = "<p clas='alert alert-success'>" . lang('item_sold') . "</p>";
@@ -260,11 +255,11 @@ class Sales extends MY_controller
             case 'GET':
                 $confirmation = $this->model_sales->delete($id);
                 echo json_encode($confirmation);
-// redirect( $_SERVER['HTTP_REFERER'] );
+                  // redirect( $_SERVER['HTTP_REFERER'] );
                 break;
             case 'POST':
-//echo json_encode( $this->model_sales->delete( $this->input->post('delete_ids')));
-// redirect( $_SERVER['HTTP_REFERER'] );
+                  //echo json_encode( $this->model_sales->delete( $this->input->post('delete_ids')));
+                  // redirect( $_SERVER['HTTP_REFERER'] );
                 break;
         }
     }
@@ -323,6 +318,27 @@ class Sales extends MY_controller
     {
         $data = $this->Model_items->get($id);
         echo json_encode($data);
+    }
+
+    function list_availables(){
+        $selected_item=  $this->input->post('sale_itm_id');
+        $items_set = $this->model_sales->related_items();
+        $imports_set = $this->model_sales->import_lister();
+        $imports_list = $this->model_sales->import_lister_by_item($selected_item);
+
+        $import_fields = $this->model_import->fields(TRUE);
+        $this->template->assign('import_data', $imports_set);
+        $this->template->assign('import_fields', $import_fields);
+        $this->template->assign('related_items', $items_set);
+        $this->template->assign('selected_item', $selected_item);
+        $fields = $this->model_sales->fields();
+        $this->template->assign('action_mode', 'create');
+        $this->template->assign('sales_fields', $fields);
+        $this->template->assign('metadata', $this->model_sales->metadata());
+        $this->template->assign('table_name', 'Sales');
+        $this->template->assign('imports_list', $imports_list);
+        $this->template->assign('template', 'form_sale_item');
+        $this->template->display('frame_admin.tpl');
     }
 
 }
