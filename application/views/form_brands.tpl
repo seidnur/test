@@ -37,7 +37,16 @@
     		</div>
     		
     	</div>
-    
+                          <div class="form-group">
+            <label>{$brands_fields.brand_cat_id}</label>
+            <select class="form-control" name="brand_cat_id" >
+                <option value="0"></option>
+                {foreach $related_categories as $rel}
+                    <option value="{$rel.categories_id}"{if isset($brands_data)}{if $brands_data.brand_cat_id == $rel.categories_id} selected="selected"{/if}{/if}>{$rel.categories_name}</option>
+                {/foreach}
+            </select>
+            
+        </div>
 
                             <div class="form-group button-actions box-footer">
                                 <div class="col-md-offset-4 col-md-6">
@@ -48,6 +57,7 @@
                                     <a class="btn btn-default link_button" href="javascript:window.history.back();">{lang('cancel')}</a>
                             </div>
                             </div>
+          
                         </form>
                     </div><!-- .inner -->
                 </div><!-- .content -->

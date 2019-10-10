@@ -80,6 +80,8 @@ $lang['zeka'] = 'ዘካ';
 $lang['brand_id'] = 'መለያ ቁጥር';
 $lang['brand_name'] = 'የብራንድ ስም';
 $lang['brand_description'] = 'ማብራሪያ';
+$lang['brand_cat_id'] = 'መደብ';
+
 /*************************
  * Table: Categories
  *************************/

@@ -12,7 +12,7 @@
 
     }
    function index(){
-
+echo "string";
      }
   }
 

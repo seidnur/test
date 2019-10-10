@@ -13,16 +13,12 @@
                 </h3> 
 
             <table class="table table-responsive" width="50%">
-                
-                <tr class="{cycle values='odd,even'}">
+            <tr class="{cycle values='odd,even'}">
                             <td>{$items_fields.itm_id}:</td>
                             <td>{$items_data.itm_id}</td>
                         </tr><tr class="{cycle values='odd,even'}">
                             <td>{$items_fields.Itm_name}:</td>
                             <td>{$items_data.Itm_name}</td>
-                        </tr><tr class="{cycle values='odd,even'}">
-                            <td>{$items_fields.itm_minimum_price}:</td>
-                            <td>{$items_data.itm_minimum_price}</td>
                         </tr><tr class="{cycle values='odd,even'}">
                             <td>{$items_fields.itm_last_updated}:</td>
                             <td>{$items_data.itm_last_updated}</td>

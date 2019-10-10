@@ -27,7 +27,7 @@ class Model_brands extends CI_Model
 	function get ( $id, $get_one = false )
 	{
         
-	    $select_statement = ( $this->raw_data ) ? 'brand_id,brand_name,brand_description' : 'brand_id,brand_name,brand_description';
+	    $select_statement = ( $this->raw_data ) ? 'brand_id,brand_name,brand_cat_id,brand_description' : 'brand_id,brand_name,categories.cat_name as brand_cat_id,brand_description';
 		$this->db->select( $select_statement );
 		$this->db->from('brands');
         
@@ -42,6 +42,7 @@ class Model_brands extends CI_Model
         {
             $this->db->where( 'brand_id', $id );
         }
+            $this->db->join('categories' ,'cat_id=brand_cat_id', 'left' );
 
 		$query = $this->db->get();
 
@@ -51,6 +52,8 @@ class Model_brands extends CI_Model
 			return array( 
 	'brand_id' => $row['brand_id'],
 	'brand_name' => $row['brand_name'],
+        'brand_cat_id' => $row['brand_cat_id'],
+    
 	'brand_description' => $row['brand_description'],
  );
 		}
@@ -202,6 +205,12 @@ class Model_brands extends CI_Model
 
 
 
+    function related_categories()
+    {
+        $this->db->select( 'cat_id AS categories_id, cat_name AS categories_name' );
+        $rel_data = $this->db->get( 'categories' );
+        return $rel_data->result_array();
+    }
 
     /**
      *  Some utility methods
@@ -211,7 +220,8 @@ class Model_brands extends CI_Model
         $fs = array(
 	'brand_id' => lang('brand_id'),
 	'brand_name' => lang('brand_name'),
-	'brand_description' => lang('brand_description')
+	'brand_description' => lang('brand_description'),
+    'brand_cat_id' => lang('brand_cat_id')
 );
 
         if( $withID == FALSE )

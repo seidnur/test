@@ -30,13 +30,7 @@
     		
     	</div>
     
-    	<div class="form-group">
-            <label>{$items_fields.itm_minimum_price}<span class="error">*</span></label>
-    		<div>
-    	       	<input class="form-control" type="text" maxlength="255" value="{if isset($items_data)}{$items_data.itm_minimum_price}{/if}" name="itm_minimum_price" />
-    		</div>
-    		
-    	</div>
+
     
     	    
     	    
