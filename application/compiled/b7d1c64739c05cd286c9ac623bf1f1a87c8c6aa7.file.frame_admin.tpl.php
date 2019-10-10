@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 15:53:37
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:50:17
          compiled from "C:\xampp\htdocs\kass\application\views\frame_admin.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:231695d9f37e1733bd1-34826933%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b7d1c64739c05cd286c9ac623bf1f1a87c8c6aa7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\frame_admin.tpl',
-      1 => 1570697440,
+      1 => 1570722610,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5d9f37e18e067',
   'variables' => 
   array (
     'config' => 0,
@@ -27,8 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'meessage' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d9f37e18e067',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5d9f37e18e067')) {function content_5d9f37e18e067($_smarty_tpl) {?><!DOCTYPE html>
 <html>
