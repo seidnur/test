@@ -1,0 +1,10 @@
+[
+ 
+  {  
+  	"name": "sale_itm_id", 
+   "type": "dropdown", 
+    "table_name": "sales",
+    "key_name": "sale_itm_id", 
+    "field_label":"sale_itm_id"
+ }
+]

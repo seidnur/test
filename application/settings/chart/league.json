@@ -1,0 +1,3 @@
+{"agg_id": "rqs_id", "agg_type": "count","agg_param": "sts_name", "table_name": "mnt_request",
+ "foreign_table":"maintenance_status", 
+"relation":"mnt_request.rqs_status = maintenance_status.sts_id"}
