@@ -48,7 +48,7 @@
                             <input type="checkbox" name="permission[]" id="permission"
                                    {if 'updateItem'|in_array:$permission_data } checked="checked"
                                     {/if}
-                                    value="Item">
+                                    value="updateItem">
                         </td>
                         <td><input type="checkbox" name="permission[]" id="permission"
                                     {if 'viewItem'|in_array:$permission_data } checked="checked" {/if}
@@ -88,7 +88,7 @@
                         </td>
                         <td><input type="checkbox" name="permission[]" id="permission"
                                     {if 'updateImport'|in_array:$permission_data } checked="checked" {/if}
-                                   value="updaImport">
+                                   value="updateImport">
                         </td>
                         <td><input type="checkbox" name="permission[]" id="permission"
                                     {if 'viewImport'|in_array:$permission_data } checked="checked" {/if}

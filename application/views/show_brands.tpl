@@ -28,6 +28,10 @@
                     <td>{$brands_fields.brand_description}:</td>
                     <td>{$brands_data.brand_description}</td>
                 </tr>
+                <tr class="{cycle values='odd,even'}">
+                    <td>{$brands_fields.brand_cat_id}:</td>
+                    <td>{$brands_data.brand_cat_id}</td>
+                </tr>
             </table>
             <div class="actions-bar wat-cf">
                 <div class="actions">

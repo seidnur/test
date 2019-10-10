@@ -1,22 +1,30 @@
+<<<<<<< HEAD
 <?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:44:02
+=======
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:50:17
+>>>>>>> seid
          compiled from "C:\xampp\htdocs\kass\application\views\frame_admin.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:63325d2da21d14d9c2-04259257%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:231695d9f37e1733bd1-34826933%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b7d1c64739c05cd286c9ac623bf1f1a87c8c6aa7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\frame_admin.tpl',
+<<<<<<< HEAD
       1 => 1570722233,
+=======
+      1 => 1570722610,
+>>>>>>> seid
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '63325d2da21d14d9c2-04259257',
+  'nocache_hash' => '231695d9f37e1733bd1-34826933',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d2da21d4febb',
+  'unifunc' => 'content_5d9f37e18e067',
   'variables' => 
   array (
     'config' => 0,
@@ -30,7 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d2da21d4febb')) {function content_5d2da21d4febb($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5d9f37e18e067')) {function content_5d9f37e18e067($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -55,7 +63,6 @@ assets/dist/css/skins/skin-black.css" rel="stylesheet" type="text/css"/>
 assets/jquery-ui/css/jquery-ui.min.css" rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
 assets/jquery-ui/css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
-
     <link href="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
 assets/dist/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
@@ -63,13 +70,11 @@ assets/dist/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
         td[class="td-width"] {
             width: 15%;
         }
-
         .table > tbody > tr > td {
             padding: 0;
             padding-top: 3px;
             padding-bottom: 3px;
         }
-
         @media print {
             @page {
                 size: landscape;   /* auto, portrait, landscape or length... */
@@ -85,7 +90,6 @@ assets/dist/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
                 width: 297mm;
                 height: 210mm;
             }
-
             td > input {
                 border: 1px solid #fff;
             }
@@ -93,11 +97,9 @@ assets/dist/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
             #search, a, input[type="checkbox"], .group-changer {
                 display: none;
             }
-
             .panel-default {
                 border-color: #fff;
             }
-
             .page-title {
                 background-color: #ddd ! Saleant;
                 padding: 10px;
@@ -108,11 +110,9 @@ assets/dist/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
         table {
             width: 100%;
         }
-
         tr:hover {
             background-color: #f3ecec;
         }
-
         .error {
             color: red;
             background-color: #acf;
@@ -128,8 +128,6 @@ assets/dist/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="assets/dist/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="assets/dist/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="assets/chartjs/Chart.js"></script>
-
-
 </head>
 <?php if ($_smarty_tpl->tpl_vars['logged_in']->value==true){?>
     <body class="skin-black sidebar-mini">
@@ -204,7 +202,6 @@ changePassword"><i
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <?php if (isset($_smarty_tpl->tpl_vars['permission']->value)){?>
-
                         <?php if ((in_array('deleteImport',$_smarty_tpl->tpl_vars['permission']->value))||(in_array('createImport',$_smarty_tpl->tpl_vars['permission']->value))||(in_array('viewImport',$_smarty_tpl->tpl_vars['permission']->value))||(in_array('updateImport',$_smarty_tpl->tpl_vars['permission']->value))){?>
                             <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Import'){?> class='active'<?php }?><?php }?>><a
                                         href='import'><span class="nav-icon fa fa-table"></span> <?php echo lang('Import');?>
@@ -303,7 +300,6 @@ href='logins'><span class="fa fa-list-alt"></span>Logins</a></li> -->
                     <div id="message-center" class="alert message-center" name="message-center" style="display: none">
                         <button type="button" class="close msgbtn" data-dismiss="alert">×</button>
                         <span class="msg">
-
                         </span>
                     </div>
                 </h1>

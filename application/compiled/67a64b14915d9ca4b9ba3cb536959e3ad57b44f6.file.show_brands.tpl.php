@@ -1,22 +1,30 @@
+<<<<<<< HEAD
 <?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:44:17
+=======
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:50:17
+>>>>>>> seid
          compiled from "C:\xampp\htdocs\kass\application\views\show_brands.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:320495d60fa843aa5b5-57399663%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:76135d9f3840e52a75-39045564%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '67a64b14915d9ca4b9ba3cb536959e3ad57b44f6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\show_brands.tpl',
+<<<<<<< HEAD
       1 => 1570722233,
+=======
+      1 => 1570722610,
+>>>>>>> seid
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '320495d60fa843aa5b5-57399663',
+  'nocache_hash' => '76135d9f3840e52a75-39045564',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d60fa84414b2',
+  'unifunc' => 'content_5d9f3840ea8a6',
   'variables' => 
   array (
     'selected_language' => 0,
@@ -26,7 +34,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d60fa84414b2')) {function content_5d60fa84414b2($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5d9f3840ea8a6')) {function content_5d9f3840ea8a6($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><div class="panel panel-default">
     <div class="panel-body">
         <div class="inner">
@@ -76,6 +84,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <td><?php echo $_smarty_tpl->tpl_vars['brands_fields']->value['brand_description'];?>
 :</td>
                     <td><?php echo $_smarty_tpl->tpl_vars['brands_data']->value['brand_description'];?>
+</td>
+                </tr>
+                <tr class="<?php echo smarty_function_cycle(array('values'=>'odd,even'),$_smarty_tpl);?>
+">
+                    <td><?php echo $_smarty_tpl->tpl_vars['brands_fields']->value['brand_cat_id'];?>
+:</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['brands_data']->value['brand_cat_id'];?>
 </td>
                 </tr>
             </table>

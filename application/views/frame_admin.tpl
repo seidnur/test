@@ -13,20 +13,17 @@
     <link href="{$config.base_url}assets/dist/css/skins/skin-black.css" rel="stylesheet" type="text/css"/>
     <link href="{$config.base_url}assets/jquery-ui/css/jquery-ui.min.css" rel="stylesheet">
     <link href="{$config.base_url}assets/jquery-ui/css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
-
     <link href="{$config.base_url}assets/dist/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
     <style type="text/css">
         td[class="td-width"] {
             width: 15%;
         }
-
         .table > tbody > tr > td {
             padding: 0;
             padding-top: 3px;
             padding-bottom: 3px;
         }
-
         @media print {
             @page {
                 size: landscape;   /* auto, portrait, landscape or length... */
@@ -42,7 +39,6 @@
                 width: 297mm;
                 height: 210mm;
             }
-
             td > input {
                 border: 1px solid #fff;
             }
@@ -50,11 +46,9 @@
             #search, a, input[type="checkbox"], .group-changer {
                 display: none;
             }
-
             .panel-default {
                 border-color: #fff;
             }
-
             .page-title {
                 background-color: #ddd ! Saleant;
                 padding: 10px;
@@ -65,11 +59,9 @@
         table {
             width: 100%;
         }
-
         tr:hover {
             background-color: #f3ecec;
         }
-
         .error {
             color: red;
             background-color: #acf;
@@ -85,8 +77,6 @@
     <script type="text/javascript" src="assets/dist/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="assets/dist/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="assets/chartjs/Chart.js"></script>
-
-
 </head>
 {if $logged_in == true}
     <body class="skin-black sidebar-mini">
@@ -153,7 +143,6 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     {if isset($permission)}
-
                         {if
                         ('deleteImport'|in_array:$permission)||
                         ('createImport'|in_array:$permission)||
@@ -302,7 +291,6 @@ href='logins'><span class="fa fa-list-alt"></span>Logins</a></li> -->
                     <div id="message-center" class="alert message-center" name="message-center" style="display: none">
                         <button type="button" class="close msgbtn" data-dismiss="alert">×</button>
                         <span class="msg">
-
                         </span>
                     </div>
                 </h1>

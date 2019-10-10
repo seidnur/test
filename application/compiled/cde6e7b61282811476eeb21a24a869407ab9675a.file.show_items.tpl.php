@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-08-23 19:54:44
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 15:59:03
          compiled from "C:\xampp\htdocs\kass\application\views\show_items.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:206895d60286430d778-50860936%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:175035d9f39273459d8-91884371%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'cde6e7b61282811476eeb21a24a869407ab9675a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\show_items.tpl',
-      1 => 1563052600,
+      1 => 1570708014,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '206895d60286430d778-50860936',
+  'nocache_hash' => '175035d9f39273459d8-91884371',
   'function' => 
   array (
   ),
@@ -24,9 +24,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d60286441b9d',
+  'unifunc' => 'content_5d9f39273b8c9',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d60286441b9d')) {function content_5d60286441b9d($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5d9f39273b8c9')) {function content_5d9f39273b8c9($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><div class="panel panel-default">
     <div class="panel-body">
         <div class="inner">
@@ -54,8 +54,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </h3> 
 
             <table class="table table-responsive" width="50%">
-                
-                <tr class="<?php echo smarty_function_cycle(array('values'=>'odd,even'),$_smarty_tpl);?>
+            <tr class="<?php echo smarty_function_cycle(array('values'=>'odd,even'),$_smarty_tpl);?>
 ">
                             <td><?php echo $_smarty_tpl->tpl_vars['items_fields']->value['itm_id'];?>
 :</td>
@@ -66,12 +65,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             <td><?php echo $_smarty_tpl->tpl_vars['items_fields']->value['Itm_name'];?>
 :</td>
                             <td><?php echo $_smarty_tpl->tpl_vars['items_data']->value['Itm_name'];?>
-</td>
-                        </tr><tr class="<?php echo smarty_function_cycle(array('values'=>'odd,even'),$_smarty_tpl);?>
-">
-                            <td><?php echo $_smarty_tpl->tpl_vars['items_fields']->value['itm_minimum_price'];?>
-:</td>
-                            <td><?php echo $_smarty_tpl->tpl_vars['items_data']->value['itm_minimum_price'];?>
 </td>
                         </tr><tr class="<?php echo smarty_function_cycle(array('values'=>'odd,even'),$_smarty_tpl);?>
 ">

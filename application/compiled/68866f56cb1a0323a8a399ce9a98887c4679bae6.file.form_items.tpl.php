@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-08-23 19:54:47
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:33:19
          compiled from "C:\xampp\htdocs\kass\application\views\form_items.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:117475d385f35622dd5-08342299%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:322085d9f4f3f27f691-42053849%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '68866f56cb1a0323a8a399ce9a98887c4679bae6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\form_items.tpl',
-      1 => 1562017510,
+      1 => 1570713278,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '117475d385f35622dd5-08342299',
+  'nocache_hash' => '322085d9f4f3f27f691-42053849',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d385f3579fc7',
   'variables' => 
   array (
     'action_mode' => 0,
@@ -29,8 +27,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'related_categories' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5d9f4f3f2f564',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d385f3579fc7')) {function content_5d385f3579fc7($_smarty_tpl) {?><div class="panel panel-default">
+<?php if ($_valid && !is_callable('content_5d9f4f3f2f564')) {function content_5d9f4f3f2f564($_smarty_tpl) {?><div class="panel panel-default">
                 <div class="panel-body">
                   
                         <a class="btn btn-sm btn-warning" href="items"> <span class="fa fa-list"></span>  <?php echo lang('listing');?>
@@ -72,15 +72,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     		
     	</div>
     
-    	<div class="form-group">
-            <label><?php echo $_smarty_tpl->tpl_vars['items_fields']->value['itm_minimum_price'];?>
-<span class="error">*</span></label>
-    		<div>
-    	       	<input class="form-control" type="text" maxlength="255" value="<?php if (isset($_smarty_tpl->tpl_vars['items_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['items_data']->value['itm_minimum_price'];?>
-<?php }?>" name="itm_minimum_price" />
-    		</div>
-    		
-    	</div>
+
     
     	    
     	    

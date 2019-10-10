@@ -117,10 +117,11 @@ class Model_sales extends CI_Model
         $meta = $this->metadata();
         $this->db->start_cache();
         $this->db->select('items.itm_name AS sale_itm_id,sale_item_amount, profit,sale_vat,
-					Date_sold,soled_by,sale_remark,
+					Date_sold,concat(employee.emp_first_name," ", employee.emp_middle_name)  as soled_by,sale_remark,
 					sold_price,sale_payment_option,sale_buyer_info,Sale_sub_total,sale_id');
         $this->db->from('sales');
         $this->db->order_by('Date_sold', 'Desc');
+        $this->db->join('employee', 'emp_user_id=soled_by','left');
         $this->db->where('returned', 0);
 
         /**
@@ -385,6 +386,57 @@ class Model_sales extends CI_Model
 
         foreach ($query->result_array() as $row) {
             $temp_result[] = array('imp_id' => $row['imp_id'], 'imp_item_id' => $row['imp_item_id'], 'sale_itm_id' => $row['sale_itm_id'],
+
+                'imp_sold_amount' => $row['imp_sold_amount'], 'imp_item_amount' => $row['imp_item_amount'], 'imp_available_amount' => $row['imp_available_amount'], 'imp_sale_itm_unit_price' => $row['imp_sale_itm_unit_price'], 'imp_min_sale_price' => $row['imp_min_sale_price'], 'imp_sub_total' => $row['imp_sub_total'], 'imp_date' => $row['imp_date'], 'imp_inserted_by' => $row['imp_inserted_by'], 'imp_remark' => $row['imp_remark'], 'imp_Last_updated_by' => $row['imp_Last_updated_by'], 'imp_Last_update' => $row['imp_Last_update'],);
+        }
+        $this->db->flush_cache();
+        return $temp_result;
+    }
+
+    function import_lister_by_item($item = FALSE)
+    {
+
+        $this->db->start_cache();
+        $this->db->select('imp_id,imp_item_id as sale_itm_id,items.itm_id as item_id,items.itm_name AS imp_item_id,imp_sold_amount,imp_item_amount,
+					       imp_available_amount,imp_sale_itm_unit_price,imp_min_sale_price,imp_sub_total,
+					       imp_date,imp_inserted_by,imp_remark,imp_Last_updated_by,imp_Last_update');
+
+        $this->db->from('import');
+        $this->db->where('imp_item_id', $item);
+        $this->db->where('imp_deleted', 0);
+        $this->db->where('imp_available_amount >', 0);
+        $this->db->order_by('imp_date', 'Desc');
+        $this->db->join('items', 'imp_item_id = itm_id', 'left');
+
+        /**
+         *   PAGINATION
+         */
+        if ($this->pagination_enabled == TRUE) {
+            $config = array();
+            $config['total_rows'] = $this->db->count_all_results();
+            $config['base_url'] = 'import/index/';
+            $config['uri_segment'] = 3;
+            $config['cur_tag_open'] = '<span class="current">';
+            $config['cur_tag_close'] = '</span>';
+            $config['per_page'] = $this->pagination_per_page;
+            $config['num_links'] = $this->pagination_num_links;
+
+            $this->load->library('pagination');
+            $this->pagination->initialize($config);
+            $this->pager = $this->pagination->create_links();
+
+        }
+
+        // Get the results
+        $query = $this->db->get();
+
+        $temp_result = array();
+
+        foreach ($query->result_array() as $row) {
+            $temp_result[] = array('imp_id' => $row['imp_id'],
+                'imp_item_id' => $row['imp_item_id'],
+                'item_id' => $row['item_id'],
+                'sale_itm_id' => $row['sale_itm_id'],
 
                 'imp_sold_amount' => $row['imp_sold_amount'], 'imp_item_amount' => $row['imp_item_amount'], 'imp_available_amount' => $row['imp_available_amount'], 'imp_sale_itm_unit_price' => $row['imp_sale_itm_unit_price'], 'imp_min_sale_price' => $row['imp_min_sale_price'], 'imp_sub_total' => $row['imp_sub_total'], 'imp_date' => $row['imp_date'], 'imp_inserted_by' => $row['imp_inserted_by'], 'imp_remark' => $row['imp_remark'], 'imp_Last_updated_by' => $row['imp_Last_updated_by'], 'imp_Last_update' => $row['imp_Last_update'],);
         }

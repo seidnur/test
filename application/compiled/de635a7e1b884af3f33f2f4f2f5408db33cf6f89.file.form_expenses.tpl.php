@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-08-24 10:59:53
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:33:30
          compiled from "C:\xampp\htdocs\kass\application\views\form_expenses.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:255685d3887f70308c6-57828517%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:86495d9f4f4a90fae3-74299339%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '255685d3887f70308c6-57828517',
+  'nocache_hash' => '86495d9f4f4a90fae3-74299339',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d3887f71af57',
   'variables' => 
   array (
     'action_mode' => 0,
@@ -28,8 +26,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'expenses_data' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5d9f4f4a9828c',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d3887f71af57')) {function content_5d3887f71af57($_smarty_tpl) {?><div class="panel panel-default">
+<?php if ($_valid && !is_callable('content_5d9f4f4a9828c')) {function content_5d9f4f4a9828c($_smarty_tpl) {?><div class="panel panel-default">
     <div class="panel-body">
 
         <a class="btn btn-sm btn-warning" href="expenses"> <span class="fa fa-list"></span> <?php echo lang('listing');?>

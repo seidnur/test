@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-08-23 19:51:11
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 15:58:59
          compiled from "C:\xampp\htdocs\kass\application\views\list_items.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:255775d385bb2858160-15145567%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:217585d9f3923897915-27926841%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '39c4952af6c06953c670c558ec88834e65c04533' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\list_items.tpl',
-      1 => 1562053032,
+      1 => 1570706587,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '255775d385bb2858160-15145567',
+  'nocache_hash' => '217585d9f3923897915-27926841',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d385bb2978b7',
   'variables' => 
   array (
     'selected_language' => 0,
@@ -26,8 +24,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pager' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5d9f39238efee',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d385bb2978b7')) {function content_5d385bb2978b7($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5d9f39238efee')) {function content_5d9f39238efee($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><div class="panel panel-default">
     <div class="panel-body">
         <div class="inner">
@@ -42,8 +42,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  <?php echo lang(($_smarty_tpl->tpl_vars['table_name']->value));?>
 
                 <?php }elseif($_smarty_tpl->tpl_vars['selected_language']->value=='amharic'){?>
-                  <?php echo lang('of');?>
-<?php echo lang(($_smarty_tpl->tpl_vars['table_name']->value));?>
+                 <?php echo lang(($_smarty_tpl->tpl_vars['table_name']->value));?>
  <?php echo lang('listing');?>
   
                 <?php }?>      
@@ -55,8 +54,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <th width="20" class=" hidden-xs hidden-sm"> <!-- <input id="checkboxControl" type="checkbox"/> --></th>
                         <th><?php echo $_smarty_tpl->tpl_vars['items_fields']->value['Itm_name'];?>
 </th>
-                        <th><?php echo $_smarty_tpl->tpl_vars['items_fields']->value['itm_minimum_price'];?>
-</th>
+                       
                         <th><?php echo $_smarty_tpl->tpl_vars['items_fields']->value['itm_cat_id'];?>
 </th>
                         <th><?php echo $_smarty_tpl->tpl_vars['items_fields']->value['itm_remark'];?>
@@ -78,8 +76,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
 "/></td>
                                 <td><?php echo $_smarty_tpl->tpl_vars['row']->value['Itm_name'];?>
 </td>
-                                <td><?php echo $_smarty_tpl->tpl_vars['row']->value['itm_minimum_price'];?>
-</td>
+                             
                                 <td><?php echo $_smarty_tpl->tpl_vars['row']->value['itm_cat_id'];?>
 </td>
                                 <td><?php echo $_smarty_tpl->tpl_vars['row']->value['itm_remark'];?>

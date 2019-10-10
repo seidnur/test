@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-08-24 13:57:55
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 15:58:41
          compiled from "C:\xampp\htdocs\kass\application\views\show_import.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:255035d612643ad7603-21050641%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:314915d9f3911eb6c41-83486611%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '255035d612643ad7603-21050641',
+  'nocache_hash' => '314915d9f3911eb6c41-83486611',
   'function' => 
   array (
   ),
@@ -24,9 +24,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d612643b7815',
+  'unifunc' => 'content_5d9f391200193',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d612643b7815')) {function content_5d612643b7815($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5d9f391200193')) {function content_5d9f391200193($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><div class="panel panel-default">
     <div class="panel-body">
             <a class="btn btn-warning btn-sm" href="import"><span class="fa fa-list"></span> <?php echo lang('listing');?>

@@ -1,4 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 class Model_import extends CI_Model
 {
     function __construct()
@@ -19,6 +20,7 @@ class Model_import extends CI_Model
          */
         $this->raw_data = FALSE;
     }
+
     function get($id, $get_one = false)
     {
         $select_statement = ($this->raw_data) ? 'imp_id,imp_item_id,imp_sold_amount,imp_item_amount,imp_available_amount,imp_sale_itm_unit_price,imp_min_sale_price,imp_sub_total,imp_date,imp_inserted_by,imp_remark,imp_Last_updated_by,imp_Last_update,imp_deleted' : 'imp_id,items.itm_name AS imp_item_id,imp_sold_amount,imp_item_amount,imp_available_amount,imp_sale_itm_unit_price,imp_min_sale_price,imp_sub_total,imp_date,imp_inserted_by,imp_remark,imp_Last_updated_by,imp_Last_update,imp_deleted';
@@ -41,16 +43,44 @@ class Model_import extends CI_Model
             return array();
         }
     }
+
+    function import_by_item($id, $get_one = false)
+    {
+        $select_statement = 'imp_id,items.itm_name AS imp_item_id,imp_sold_amount,imp_item_amount,imp_available_amount,imp_sale_itm_unit_price,imp_min_sale_price,
+            imp_sub_total,imp_date,imp_inserted_by,imp_remark,imp_Last_updated_by,imp_Last_update,imp_deleted';
+        $this->db->select($select_statement);
+        $this->db->from('import');
+        $this->db->join('items', 'imp_item_id = itm_id', 'left');
+        // Pick one record
+        // Field order sample may be empty because no record is requested, eg. create/GET event
+        if ($get_one) {
+            $this->db->limit(1, 0);
+        } else // Select the desired record
+        {
+            $this->db->where('imp_item_id', $id);
+            $this->db->where('imp_available_amount>', 0);
+        }
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+          return $query->row_array();
+
+        } else {
+            return array();
+        }
+    }
+
     function insert($data)
     {
         $this->db->insert('import', $data);
         return $this->db->insert_id();
     }
+
     function update($id, $data)
     {
         $this->db->where('imp_id', $id);
         $this->db->update('import', $data);
     }
+
     function delete($id)
     {
         if (is_array($id)) {
@@ -60,6 +90,7 @@ class Model_import extends CI_Model
         }
         $this->db->delete('import');
     }
+
     function lister($page = FALSE, $impdate = false)
     {
         $this->db->start_cache();
@@ -127,6 +158,7 @@ class Model_import extends CI_Model
         $this->db->flush_cache();
         return $temp_result;
     }
+
     function search($keyword, $page = FALSE)
     {
         $meta = $this->metadata();
@@ -164,12 +196,14 @@ class Model_import extends CI_Model
         $this->db->flush_cache();
         return $temp_result;
     }
+
     function related_items()
     {
         $this->db->select('itm_id AS items_id, itm_name AS items_name');
         $rel_data = $this->db->get('items');
         return $rel_data->result_array();
     }
+
     /**
      *  Some utility methods
      */
@@ -181,10 +215,12 @@ class Model_import extends CI_Model
         }
         return $fs;
     }
+
     function pagination($bool)
     {
         $this->pagination_enabled = ($bool === TRUE) ? TRUE : FALSE;
     }
+
     /**
      *  Parses the table data and look for enum values, to match them with language variables
      */
@@ -199,6 +235,7 @@ class Model_import extends CI_Model
         }
         return $metadata;
     }
+
     /**
      * @param $today
      * @param bool $start

@@ -1,25 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-08-23 19:51:33
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 15:58:50
          compiled from "C:\xampp\htdocs\kass\application\views\list_sales.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:695d2da21d9c05f5-68874261%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:313605d9f391a980f67-87659762%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '52578bac8770b8ec12848cff69769398d47257fb' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\list_sales.tpl',
-      1 => 1563986966,
+      1 => 1570697440,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '695d2da21d9c05f5-68874261',
+  'nocache_hash' => '313605d9f391a980f67-87659762',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d2da21da9070',
   'variables' => 
   array (
-    'search_form' => 0,
     'selected_language' => 0,
     'errors' => 0,
     'success' => 0,
@@ -37,8 +34,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'this_year_sales' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5d9f391aa1e7d',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d2da21da9070')) {function content_5d2da21da9070($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5d9f391aa1e7d')) {function content_5d9f391aa1e7d($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\xampp\\htdocs\\kass\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><div class="panel panel-default">
     <div class="panel-body">
         <div class="inner">
@@ -47,10 +46,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <a class="btn btn-sm btn-success" href="sales/create/"> <span
                         class="fa fa-plus"></span> <?php echo lang('new_record');?>
 </a>
-             <form action="sales/search" method="post" id="search_form">
-                <?php if (isset($_smarty_tpl->tpl_vars['search_form']->value)){?><?php echo $_smarty_tpl->tpl_vars['search_form']->value;?>
-<?php }?>
-            </form>
+
             <h3>
                 <?php if ($_smarty_tpl->tpl_vars['selected_language']->value=='english'){?>
                     <?php echo lang('listing');?>

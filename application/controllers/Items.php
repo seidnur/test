@@ -67,12 +67,10 @@ $fields = $this->model_items->fields();
 /* we set the rules */
 /* don't forget to edit these */
 $this->form_validation->set_rules('Itm_name', lang('Itm_name'), 'required|max_length[25]');
-$this->form_validation->set_rules('itm_minimum_price', lang('itm_minimum_price'), 'required|numeric');
 $this->form_validation->set_rules('brand_id', lang('brand_id'), 'required|max_length[11]|integer');
 $this->form_validation->set_rules('itm_cat_id', lang('itm_cat_id'), 'required|max_length[11]|integer');
 $this->form_validation->set_rules('itm_available_quantity', lang('itm_available_quantity'), 'integer');
 $data_post['Itm_name'] = $this->input->post('Itm_name');
-$data_post['itm_minimum_price'] = $this->input->post('itm_minimum_price');
 $data_post['itm_last_updated'] =date('Y-M-d');
 $data_post['itm_last_updated_by'] = 1;
 $data_post['itm_remark'] = $this->input->post('itm_remark');
@@ -132,11 +130,9 @@ $fields = $this->model_items->fields();
 /* we set the rules */
 /* don't forget to edit these */
 $this->form_validation->set_rules('Itm_name', lang('Itm_name'), 'required|max_length[50]');
-$this->form_validation->set_rules('itm_minimum_price', lang('itm_minimum_price'), 'required|numeric');
 $this->form_validation->set_rules('brand_id', lang('brand_id'), 'required|max_length[11]|integer');
 $this->form_validation->set_rules('itm_cat_id', lang('itm_cat_id'), 'required|max_length[11]|integer');
 $data_post['Itm_name'] = $this->input->post('Itm_name');
-$data_post['itm_minimum_price'] = $this->input->post('itm_minimum_price');
 $data_post['itm_last_updated'] =   $this->user;
 $data_post['itm_last_updated_by'] = $this->user;
 $data_post['itm_remark'] = $this->input->post('itm_remark');
