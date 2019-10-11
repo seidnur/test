@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 15:53:46
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 18:47:38
          compiled from "C:\xampp\htdocs\kass\application\views\form_brands.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:248525d9f37ea29ded2-76562501%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:259145d9f60aa532c16-18469371%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '06e43015a79e40cc7eba1efa4305bb47adabfa23' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\form_brands.tpl',
-      1 => 1570713641,
+      1 => 1570722710,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '248525d9f37ea29ded2-76562501',
+  'nocache_hash' => '259145d9f60aa532c16-18469371',
   'function' => 
   array (
   ),
@@ -27,9 +27,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d9f37ea33212',
+  'unifunc' => 'content_5d9f60aa56ef4',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d9f37ea33212')) {function content_5d9f37ea33212($_smarty_tpl) {?><div class="panel panel-default">
+<?php if ($_valid && !is_callable('content_5d9f60aa56ef4')) {function content_5d9f60aa56ef4($_smarty_tpl) {?><div class="panel panel-default">
                 <div class="panel-body">
                   
                         <a class="btn btn-sm btn-warning" href="brands">

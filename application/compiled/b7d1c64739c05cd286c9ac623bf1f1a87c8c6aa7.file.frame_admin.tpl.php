@@ -1,30 +1,20 @@
-<<<<<<< HEAD
-<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:44:02
-=======
-<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 17:50:17
->>>>>>> seid
+<?php /* Smarty version Smarty-3.1.7, created on 2019-10-10 18:47:38
          compiled from "C:\xampp\htdocs\kass\application\views\frame_admin.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:231695d9f37e1733bd1-34826933%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:216055d9f60aa0e22c3-51422734%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b7d1c64739c05cd286c9ac623bf1f1a87c8c6aa7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kass\\application\\views\\frame_admin.tpl',
-<<<<<<< HEAD
-      1 => 1570722233,
-=======
-      1 => 1570722610,
->>>>>>> seid
+      1 => 1570722710,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '231695d9f37e1733bd1-34826933',
+  'nocache_hash' => '216055d9f60aa0e22c3-51422734',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5d9f37e18e067',
   'variables' => 
   array (
     'config' => 0,
@@ -37,8 +27,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'meessage' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5d9f60aa29781',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d9f37e18e067')) {function content_5d9f37e18e067($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5d9f60aa29781')) {function content_5d9f60aa29781($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
