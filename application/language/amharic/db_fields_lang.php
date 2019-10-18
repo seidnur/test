@@ -116,6 +116,7 @@ $lang['cr_status'] = 'ሁኔታ';
 /*************************
  * Table: Employee
  *************************/
+$lang['cr_full_name'] = 'ሙሉ ስም';
 $lang['emp_user_id'] = 'የተጠቃሚ መለያ';
 $lang['emp_first_name'] = 'ስም';
 $lang['emp_middle_name'] = 'የአባት ስም';

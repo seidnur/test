@@ -23,10 +23,17 @@ class Model_import extends CI_Model
 
     function get($id, $get_one = false)
     {
-        $select_statement = ($this->raw_data) ? 'imp_id,imp_item_id,imp_sold_amount,imp_item_amount,imp_available_amount,imp_sale_itm_unit_price,imp_min_sale_price,imp_sub_total,imp_date,imp_inserted_by,imp_remark,imp_Last_updated_by,imp_Last_update,imp_deleted' : 'imp_id,items.itm_name AS imp_item_id,imp_sold_amount,imp_item_amount,imp_available_amount,imp_sale_itm_unit_price,imp_min_sale_price,imp_sub_total,imp_date,imp_inserted_by,imp_remark,imp_Last_updated_by,imp_Last_update,imp_deleted';
+        $select_statement = ($this->raw_data) ? 'imp_id,imp_item_id,imp_sold_amount,imp_item_amount,
+        imp_available_amount,imp_sale_itm_unit_price,imp_min_sale_price,imp_sub_total,user_name,
+        imp_date,imp_inserted_by,imp_remark,imp_Last_updated_by,
+        imp_Last_update,imp_deleted' : 'imp_id,items.itm_name AS imp_item_id,
+        imp_sold_amount,imp_item_amount,imp_available_amount,imp_sale_itm_unit_price,
+        imp_min_sale_price,imp_sub_total,imp_date,imp_inserted_by,imp_remark,
+        imp_Last_updated_by,imp_Last_update,imp_deleted,user_name';
         $this->db->select($select_statement);
         $this->db->from('import');
         $this->db->join('items', 'imp_item_id = itm_id', 'left');
+         $this->db->join('users', 'user_emp_id = imp_Last_updated_by', 'left');
         // Pick one record
         // Field order sample may be empty because no record is requested, eg. create/GET event
         if ($get_one) {
@@ -38,7 +45,7 @@ class Model_import extends CI_Model
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             $row = $query->row_array();
-            return array('imp_id' => $row['imp_id'], 'imp_item_id' => $row['imp_item_id'], 'imp_sold_amount' => $row['imp_sold_amount'], 'imp_item_amount' => $row['imp_item_amount'], 'imp_available_amount' => $row['imp_available_amount'], 'imp_sale_itm_unit_price' => $row['imp_sale_itm_unit_price'], 'imp_min_sale_price' => $row['imp_min_sale_price'], 'imp_sub_total' => $row['imp_sub_total'], 'imp_date' => $row['imp_date'], 'imp_inserted_by' => $row['imp_inserted_by'], 'imp_remark' => $row['imp_remark'], 'imp_Last_updated_by' => $row['imp_Last_updated_by'], 'imp_Last_update' => $row['imp_Last_update'], 'imp_deleted' => $row['imp_deleted'],);
+            return array('imp_id' => $row['imp_id'], 'imp_item_id' => $row['imp_item_id'],'imp_sold_amount' => $row['imp_sold_amount'],'user_name' => $row['user_name'], 'imp_item_amount' => $row['imp_item_amount'], 'imp_available_amount' => $row['imp_available_amount'], 'imp_sale_itm_unit_price' => $row['imp_sale_itm_unit_price'], 'imp_min_sale_price' => $row['imp_min_sale_price'], 'imp_sub_total' => $row['imp_sub_total'], 'imp_date' => $row['imp_date'], 'imp_inserted_by' => $row['imp_inserted_by'], 'imp_remark' => $row['imp_remark'], 'imp_Last_updated_by' => $row['imp_Last_updated_by'], 'imp_Last_update' => $row['imp_Last_update'], 'imp_deleted' => $row['imp_deleted'],);
         } else {
             return array();
         }
@@ -209,7 +216,16 @@ class Model_import extends CI_Model
      */
     function fields($withID = FALSE)
     {
-        $fs = array('imp_id' => lang('imp_id'), 'imp_item_id' => lang('imp_item_id'), 'imp_sold_amount' => lang('imp_sold_amount'), 'imp_item_amount' => lang('imp_item_amount'), 'imp_available_amount' => lang('imp_available_amount'), 'imp_sale_itm_unit_price' => lang('imp_sale_itm_unit_price'), 'imp_min_sale_price' => lang('imp_min_sale_price'), 'imp_sub_total' => lang('imp_sub_total'), 'imp_date' => lang('imp_date'), 'imp_inserted_by' => lang('imp_inserted_by'), 'imp_remark' => lang('imp_remark'), 'imp_Last_updated_by' => lang('imp_Last_updated_by'), 'imp_Last_update' => lang('imp_Last_update'), 'imp_deleted' => lang('imp_deleted'), 'sell_quantity' => lang('sell_quantity'), 'sell_price' => lang('sell_price'), 'save_sell' => lang('save_sell'));
+        $fs = array('imp_id' => lang('imp_id'), 'imp_item_id' => lang('imp_item_id'),
+         'imp_sold_amount' => lang('imp_sold_amount'), 'imp_item_amount' => lang('imp_item_amount'), 
+         'imp_available_amount' => lang('imp_available_amount'),
+          'imp_sale_itm_unit_price' => lang('imp_sale_itm_unit_price'),
+           'imp_min_sale_price' => lang('imp_min_sale_price'), 'imp_sub_total' => lang('imp_sub_total'), 
+           'imp_date' => lang('imp_date'), 'imp_inserted_by' => lang('imp_inserted_by'),
+            'imp_remark' => lang('imp_remark'), 'imp_Last_updated_by' => lang('imp_Last_updated_by'),
+             'imp_Last_update' => lang('imp_Last_update'), 'imp_deleted' => lang('imp_deleted'), 
+             'sell_quantity' => lang('sell_quantity'), 'sell_price' => lang('sell_price'), 'user_name'=> lang('user_name'),
+             'save_sell' => lang('save_sell'));
         if ($withID == FALSE) {
             unset($fs[0]);
         }

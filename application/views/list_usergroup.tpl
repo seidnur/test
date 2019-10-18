@@ -31,7 +31,7 @@
                                 				
 				<td>{$row.group_user_id}</td>
 				<td>{$row.group_id}</td>
-				<td>{$row.group_created_by}</td>
+				<td>{$row.group_user_id}</td>
 				<td>{$row.group_remark}</td>
 				<td>{$row.group_created_date}</td>
 

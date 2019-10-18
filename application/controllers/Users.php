@@ -10,6 +10,7 @@ $this->load->helper( 'form' );
 $this->load->helper( 'language' ); 
 $this->load->helper( 'url' );
 $this->load->model( 'model_auth' );
+
 }
 /**
 *  LISTS MODEL DATA INTO A TABLE
@@ -46,6 +47,7 @@ $this->template->display( 'frame_admin.tpl' );
 function create( $id = false )
 {
 $this->load->library('form_validation');
+$this->load->library('session');
 switch ( $_SERVER ['REQUEST_METHOD'] )
 {
 case 'GET':
@@ -98,8 +100,19 @@ $this->template->display( 'frame_admin.tpl' );
 elseif ( $this->form_validation->run() == TRUE )
 {
 $insert_id = $this->model_users->insert( $data_post );
-redirect( 'users' );
+   
+  if($insert_id==true){
+
+ 		$this->session->set_flashdata('success', 'Successfully created');
+        		redirect('users/create/');
+        	}
+        	else {
+        		$this->session->set_flashdata('errors', 'Error occurred!!');
+        		redirect('users/create/');
+       }
+
 }
+
 break;
 }
 }

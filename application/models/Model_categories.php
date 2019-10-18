@@ -68,35 +68,19 @@ class Model_categories extends CI_Model
 
     function delete($id)
     {
-        if (is_array($id)) {
-            $this->db->where_in('cat_id', $id);
-        } else {
-            $this->db->where('cat_id', $id);
+       
+
+        if( is_array( $id ) )
+        {
+       $this->db->where_in('cat_id', $id);           
         }
-        $this->db->delete('categories');
-        $this->db->where('categories_id', $id);
-        $this->db->set('cat_deleted', 1);
-        $this->db->update('items_categories');
+        else
+        {
+            $this->db->where( 'cat_id', $id );
+        }
+       
 
-
-        $this->db->where('categories_id', $id);
-        $this->db->delete('items_categories');
-
-
-        $this->db->where('categories_id', $id);
-        $this->db->delete('items_categories');
-
-
-        $this->db->where('categories_id', $id);
-        $this->db->delete('items_categories');
-
-
-        $this->db->where('categories_id', $id);
-        $this->db->delete('items_categories');
-
-
-        $this->db->where('categories_id', $id);
-        $this->db->delete('items_categories');
+        $this->db->delete( 'categories');
 
 
     }
@@ -121,6 +105,56 @@ class Model_categories extends CI_Model
             $config['uri_segment'] = 3;
             $config['per_page'] = $this->pagination_per_page;
             $config['num_links'] = $this->pagination_num_links;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             // Customizing the First Link

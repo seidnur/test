@@ -169,8 +169,6 @@ class Sales extends MY_controller
                     $this->template->assign('metadata', $this->model_sales->metadata());
                     $this->template->assign('table_name', 'Sales');
                     $this->template->assign('template', 'form_sale_item');
-                    echo json_encode($data_post);
-
                     $insert_id = $this->model_sales->insert($data_post, $impdata);
                     $message = "<p clas='alert alert-success'>" . lang('item_sold') . "</p>";
                     $this->template->assign('success', $message);
@@ -254,9 +252,12 @@ class Sales extends MY_controller
         switch ($_SERVER ['REQUEST_METHOD']) {
             case 'GET':
                 $confirmation = $this->model_sales->delete($id);
-                echo json_encode($confirmation);
-                  // redirect( $_SERVER['HTTP_REFERER'] );
-                break;
+                  if($confirmation)
+                  {
+                  redirect( $_SERVER['HTTP_REFERER'] );
+                    break;
+              }
+              
             case 'POST':
                   //echo json_encode( $this->model_sales->delete( $this->input->post('delete_ids')));
                   // redirect( $_SERVER['HTTP_REFERER'] );

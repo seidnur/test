@@ -24,7 +24,7 @@ $this->template->assign( 'pager', $this->model_usergroup->pager );
 $this->template->assign( 'usergroup_fields', $fields );
 $this->template->assign( 'usergroup_data', $data_info );
 $this->template->assign( 'table_name', 'usergroup' );
-$this->template->assign( 'template', 'list_usergroup' );
+$this->template->assign( 'template', 'list_usergroup');
 $this->template->display( 'frame_admin.tpl' );
 }
 /**

@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                         {/if}
-
+               
                         <form class="form" method='post' action='items/{$action_mode}/{if isset($record_id)}{$record_id}{/if}' enctype="multipart/form-data">
 
               <div class="col-lg-12" style="margin-top:30px">
@@ -36,6 +36,7 @@
     	    
     	<div class="form-group">
             <label>{$items_fields.itm_remark}</label>
+                  {$success}
     		<div>
     	       	<input class="form-control" type="text" maxlength="255" value="{if isset($items_data)}{$items_data.itm_remark}{/if}" name="itm_remark" />
     		</div>

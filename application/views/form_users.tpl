@@ -1,5 +1,9 @@
     <div class="panel panel-default">
                     <div class="panel-body">
+                    <div class="col-md-12 col-xs-12">
+          
+          
+
                             <a class="btn btn-sm btn-warning" href="users"> <span class="fa fa-list"></span>  {lang('listing')}</a>
                             <a class="btn btn-success btn-sm" href="users/create/"> <span class="fa fa-plus"></span> {lang('new_record')}</a>
                         <div class="inner">
@@ -15,6 +19,17 @@
                                     </div>
                                 </div>
                             {/if}
+                            <?php if($this->session->flashdata('success')): ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <?php echo $this->session->flashdata('success'); ?>
+            </div>
+          <?php elseif($this->session->flashdata('error')): ?>
+            <div class="alert alert-error alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <?php echo $this->session->flashdata('error'); ?>
+            </div>
+          <?php endif; ?>
                             <form class="form" method='post' action='users/{$action_mode}/{if isset($record_id)}{$record_id}{/if}' enctype="multipart/form-data">
     <div class="col-lg-12" style="margin-top:20px">
                                 <div class="col-lg-6">

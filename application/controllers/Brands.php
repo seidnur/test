@@ -67,6 +67,8 @@
 	$data_post['brand_name'] = $this->input->post( 'brand_name' );
 	$data_post['brand_description'] = $this->input->post( 'brand_description' );
 	$data_post['brand_cat_id'] = $this->input->post( 'brand_cat_id' );
+	$data_post['brand_created_by'] =  $this->user;
+    $data_post['brand_created_date'] = $this->currentDate;
 
 	if ( $this->form_validation->run() == FALSE )
 	{

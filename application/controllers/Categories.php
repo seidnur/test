@@ -66,15 +66,17 @@ $fields = $this->model_categories->fields();
 /* don't forget to edit these */
 $this->form_validation->set_rules( 'cat_name', lang('cat_name'), 'required|max_length[20]' );
 $this->form_validation->set_rules( 'cat_desc', lang('cat_desc'), 'required' );
-$this->form_validation->set_rules( 'cat_created_by', lang('cat_created_by'), 'required|max_length[25]' );
+// $this->form_validation->set_rules( 'cat_created_by', lang('cat_created_by'), 'required|max_length[25]' );
 $this->form_validation->set_rules( 'cat_remark', lang('cat_remark'), 'required' );
 $this->form_validation->set_rules( 'cat_deleted', lang('cat_deleted'), '11' );
 $data_post['cat_name'] = $this->input->post( 'cat_name' );
 $data_post['cat_desc'] = $this->input->post( 'cat_desc' );
-$data_post['cat_created_by'] = $this->input->post( 'cat_created_by' );
+$data_post['cat_created_by'] =  $this->user;
+$data_post['cat_created_date'] = $this->currentDate;
 $data_post['cat_remark'] = $this->input->post( 'cat_remark' );
 $data_post['cat_deleted'] = $this->input->post( 'cat_deleted' );
-$data_post['cat_created_date'] = $this->input->post( 'cat_created_date' );
+
+
 if ( $this->form_validation->run() == FALSE )
 {
 $errors = validation_errors();
@@ -129,7 +131,8 @@ $data_post['cat_name'] = $this->input->post( 'cat_name' );
 $data_post['cat_desc'] = $this->input->post( 'cat_desc' );
 $data_post['cat_remark'] = $this->input->post( 'cat_remark' );
 $data_post['cat_deleted'] = $this->input->post( 'cat_deleted' );
-$data_post['cat_created_date'] = $this->input->post( 'cat_created_date' );
+$data_post['cat_created_by'] =  $this->user;
+$data_post['cat_created_date'] = $this->currentDate;
 if ( $this->form_validation->run() == FALSE )
 {
 $errors = validation_errors();

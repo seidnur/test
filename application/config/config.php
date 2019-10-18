@@ -24,7 +24,7 @@
 	|
 	*/
 	//$config['base_url'] = 'http://192.168.137.1/kass/';
-	$config['base_url'] = 'http://localhost/kass/';
+	$config['base_url'] = 'http://localhost:40/kass/';
 	$config['app_name'] = 'KASS';
 	$config['app_name_long'] ='Kass kitchen Appliances supply';
 

@@ -28,12 +28,14 @@ $lang['top_seller'] = 'Top seller';
 /*************************
  * Table names
  *************************/
+$lang['brand_cat_id'] = 'brand category';
+
 $lang['brands'] = 'Brands';
 $lang['categories'] = 'Categories';
 $lang['credit'] = 'Credit';
 $lang['employee'] = 'Employee';
 $lang['group'] = 'Group';
-$lang['import'] = 'Import';
+$lang['import'] = 'Imported Item List';
 $lang['Import'] = 'Import Management';
 $lang['items'] = 'Items';
 $lang['expense_type'] = 'Expense Type';
@@ -51,6 +53,7 @@ $lang['zeka'] = 'Zeka';
  * Table: Brands
  *************************/
 $lang['brand_id'] = 'Id';
+$lang['itm_name'] = 'Item name';
 $lang['brand_name'] = 'Name';
 $lang['brand_description'] = 'Description';
 
@@ -121,8 +124,10 @@ $lang['permission'] = 'Permissions';
 /*************************
  * Table: Import
  *************************/
+
 $lang['imp_id'] = 'id';
 $lang['imp_item_id'] = 'item ';
+$lang['imp_sold_amount'] = 'sold item';
 $lang['imp_item_amount'] = 'Amount';
 $lang['imp_date'] = 'Date';
 $lang['imp_inserted_by'] = 'imported by';
@@ -136,6 +141,7 @@ $lang['imp_Last_update'] = 'Date last updated';
 $lang['imp_available_amount'] = 'Available';
 $lang['imp_sale_itm_unit_price'] = 'Unit Price';
 $lang['imp_min_sale_price'] = 'Sale Price';
+$lang['imp_deleted'] = 'is it lost?';
 
 
 /*************************

@@ -44,13 +44,13 @@
                             <td>{$import_data.imp_date}</td>
                         </tr><tr class="{cycle values='odd,even'}">
                             <td>{$import_fields.imp_inserted_by}:</td>
-                            <td>{$import_data.imp_inserted_by}</td>
+                            <td>{$import_data.user_name}</td>
                         </tr><tr class="{cycle values='odd,even'}">
                             <td>{$import_fields.imp_remark}:</td>
                             <td>{$import_data.imp_remark}</td>
                         </tr><tr class="{cycle values='odd,even'}">
                             <td>{$import_fields.imp_Last_updated_by}:</td>
-                            <td>{$import_data.imp_Last_updated_by}</td>
+                            <td>{$import_data.user_name}</td>
                         </tr><tr class="{cycle values='odd,even'}">
                             <td>{$import_fields.imp_Last_update}:</td>
                             <td>{$import_data.imp_Last_update}</td>
