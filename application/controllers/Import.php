@@ -204,7 +204,11 @@ class Import extends MY_Controller
                 $data_post['imp_min_sale_price'] = $this->input->post('imp_min_sale_price');
                 $data_post['imp_sub_total'] = $this->input->post('imp_sale_itm_unit_price') * $this->input->post('imp_item_amount');
                 $data_post['imp_date'] = $this->input->post('imp_date');
-                $data_post['imp_inserted_by'] = $this->input->post('imp_inserted_by');
+
+                $data_post['imp_inserted_by'] =  $this->user;
+          // $data_post['cat_created_date'] = $this->currentDate;
+
+              
                 $data_post['imp_remark'] = $this->input->post('imp_remark');
                 $data_post['imp_Last_updated_by'] = $this->input->post('imp_Last_updated_by');
                 $data_post['imp_Last_update'] = $this->input->post('imp_Last_update');
