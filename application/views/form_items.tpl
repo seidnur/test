@@ -36,7 +36,7 @@
     	    
     	<div class="form-group">
             <label>{$items_fields.itm_remark}</label>
-                  {$success}
+
     		<div>
     	       	<input class="form-control" type="text" maxlength="255" value="{if isset($items_data)}{$items_data.itm_remark}{/if}" name="itm_remark" />
     		</div>

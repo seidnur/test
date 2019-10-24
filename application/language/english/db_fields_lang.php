@@ -25,6 +25,11 @@ $lang['Sales'] = 'sales';
 $lang['details'] = 'Details';
 $lang['save_sell'] = 'sell item';
 $lang['top_seller'] = 'Top seller';
+$lang['no_stock_found'] = 'there is no item for sales
+	                                             <ul>
+	                                              <li>no item in the stock</li>
+	                                             <li>finished item in the stock</li>
+	                                            </ul> ';
 /*************************
  * Table names
  *************************/
@@ -126,6 +131,9 @@ $lang['permission'] = 'Permissions';
  *************************/
 
 $lang['imp_id'] = 'id';
+$lang['impmessage'] = 'imported item successfully saved';
+$lang['impmessageupdate'] = 'imported item list successfully updated';
+$lang['impmessagedaleted'] = 'imported item list successfully deleted';
 $lang['imp_item_id'] = 'item ';
 $lang['imp_sold_amount'] = 'sold item';
 $lang['imp_item_amount'] = 'Amount';
@@ -147,6 +155,10 @@ $lang['imp_deleted'] = 'is it lost?';
 /*************************
  * Table: Items
  *************************/
+
+$lang['itemmessage'] = 'item successfully saved';
+$lang['itemdelete'] = 'item list successfully deleted';
+$lang['itemupdate'] = 'item list successfully updated';
 $lang['itm_id'] = 'Item id';
 $lang['Itm_name'] = 'Name';
 $lang['itm_minimum_price'] = 'Price';
@@ -158,6 +170,7 @@ $lang['itm_cat_id'] = 'Category';
 $lang['item_created_by'] = 'Created by';
 $lang['itm_date_created'] = 'Date created';
 $lang['itm_available_quantity'] = 'Available Amount';
+$lang['Items'] = 'item management';
 
 
 /*************************
@@ -173,8 +186,12 @@ $lang['LoginDate'] = 'Date Logged';
  * Table: Sales
  *************************/
 $lang['sale_itm_id'] = 'item';
-$lang['sale_item_amount'] = 'Amount';
 
+$lang['salesmessage'] = 'sales item successfully sold';
+$lang['salesdelete'] = 'sales item list deleted';
+$lang['sale_item_amount'] = 'Amount';
+$lang['sell_quantity'] = 'sell item quantity';
+$lang['sell_price'] = 'unit price';
 $lang['Date_sold'] = 'Date';
 $lang['soled_by'] = 'sold by';
 $lang['sale_remark'] = 'Remark';

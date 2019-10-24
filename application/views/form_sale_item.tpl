@@ -36,7 +36,7 @@
 							<th class="hidden-xs">{$import_fields.imp_date}</th>
 							<th>{$import_fields.imp_item_id}</th>
 							<th>{$import_fields.imp_available_amount}</th>
-							{*<th class="hidden-xs ">{$import_fields.imp_sale_itm_unit_price}</th>*}
+
 							<th>{$import_fields.imp_min_sale_price}</th>
 							<th>{$import_fields.sell_quantity}</th>
 							<th>{$import_fields.sell_price}</th>

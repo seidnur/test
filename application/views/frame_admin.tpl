@@ -288,6 +288,12 @@ href='logins'><span class="fa fa-list-alt"></span>Logins</a></li> -->
                 <h1>
                     <i class="fa fa-tachometer" aria-hidden="true"></i>{if isset($table_name)} {lang("$table_name")}
                     {/if}
+                    <div class="fa fa-message alert-dismissible" role="alert" aria-hidden="true">
+
+                        {if isset($message)}
+                            {$message}
+                        {/if}
+                    </div>
                     <div id="message-center" class="alert message-center" name="message-center" style="display: none">
                         <button type="button" class="close msgbtn" data-dismiss="alert">×</button>
                         <span class="msg">
@@ -297,9 +303,7 @@ href='logins'><span class="fa fa-list-alt"></span>Logins</a></li> -->
             </section>
             <section class="content">
                 <div class="">
-                    {if isset($message)}
-                        {$meessage}
-                    {/if}
+
                     {if $logged_in == TRUE}
                         {include file="$template.tpl"}
                     {/if}

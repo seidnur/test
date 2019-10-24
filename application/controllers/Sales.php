@@ -60,7 +60,7 @@ class Sales extends MY_controller
             "odata.metadata" => "",
             "value" => $data_info
         );
-        echo json_encode($resultObject);
+       // echo json_encode($resultObject);
     }
 
     function sale($page = 0)
@@ -166,15 +166,13 @@ class Sales extends MY_controller
                     $this->template->assign('action_mode', 'create');
                     $this->template->assign('sales_data', $data_post);
                     $this->template->assign('sales_fields', $fields);
+                    $this->template->assign('message', lang('salesmessage'));
                     $this->template->assign('metadata', $this->model_sales->metadata());
                     $this->template->assign('table_name', 'Sales');
                     $this->template->assign('template', 'form_sale_item');
                     $insert_id = $this->model_sales->insert($data_post, $impdata);
-                    $message = "<p clas='alert alert-success'>" . lang('item_sold') . "</p>";
-                    $this->template->assign('success', $message);
                     $this->template->display('frame_admin.tpl');
-                    header('location:' . $_SERVER['HTTP_REFERER']);
-                    redirect('sales', "refresh");
+
                 }
                 break;
         }
@@ -237,7 +235,7 @@ class Sales extends MY_controller
                     $this->template->display('frame_admin.tpl');
                 } elseif ($this->form_validation->run() == TRUE) {
                     $this->model_sales->update($id, $data_post);
-                    redirect('sales/show/' . $id);
+
                 }
                 break;
         }
@@ -249,13 +247,20 @@ class Sales extends MY_controller
      */
     function delete($id = FALSE)
     {
-        switch ($_SERVER ['REQUEST_METHOD']) {
+
+           switch ($_SERVER ['REQUEST_METHOD']) {
             case 'GET':
+
                 $confirmation = $this->model_sales->delete($id);
                   if($confirmation)
                   {
-                  redirect( $_SERVER['HTTP_REFERER'] );
-                    break;
+                      $this->template->assign('action_mode', 'edit');
+                      $this->template->assign('metadata', $this->model_sales->metadata());
+                      $this->template->assign('table_name', 'Sales');
+                      $this->template->assign('message', lang('salesdelete'));
+                      $this->template->assign('template', 'form_sales');
+                      $this->template->assign('record_id', $id);
+                      $this->template->display('frame_admin.tpl');
               }
               
             case 'POST':
@@ -318,7 +323,7 @@ class Sales extends MY_controller
     function getItemDetails($id)
     {
         $data = $this->Model_items->get($id);
-        echo json_encode($data);
+        //echo json_encode($data);
     }
 
     function list_availables(){
@@ -335,11 +340,16 @@ class Sales extends MY_controller
         $fields = $this->model_sales->fields();
         $this->template->assign('action_mode', 'create');
         $this->template->assign('sales_fields', $fields);
+
         $this->template->assign('metadata', $this->model_sales->metadata());
         $this->template->assign('table_name', 'Sales');
         $this->template->assign('imports_list', $imports_list);
         $this->template->assign('template', 'form_sale_item');
         $this->template->display('frame_admin.tpl');
-    }
+
+
+
+
+           }
 
 }

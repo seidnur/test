@@ -35,7 +35,7 @@ $lang['income_vs_profit'] = 'ገቢ vs ወጭ';
 $lang['no_stock_found'] = 'የሚሸጥ ምንም አይነት አቃ አልተገኘም፤ ምናልባት
 	                                             <ul>
 	                                              <li>ምንም አይነት እቃ ወደ ስቶክ አላስገቡም ወይም </li>
-	                                             <li>የገቡ እቃዎች ተሽጠው አለቀዋል</li>
+	                                             <li>የገባው እቃ ተሽጦ አልቋል</li>
 	                                            </ul> ';
 $lang['details'] = 'ሙሉ መረጃ';
 $lang['Credit'] = 'ብድር';
@@ -60,7 +60,7 @@ $lang['categories'] = 'የእቃ አይነቶች';
 $lang['credit'] = 'ብድር መቆጣጠሪያ';
 $lang['employee'] = 'ሰራተኞች መቆጣጠሪያ';
 $lang['group'] = 'የተጠቃሚ አይነቶች';
-$lang['Import'] = 'ገቢ አቃዎች መቆጣጠሪያ';
+$lang['Import'] = 'ገቢ እቃዎች መቆጣጠሪያ';
 $lang['import'] = 'ገቢ የሆኑ እቃዎች';
 $lang['Items'] = 'የእቃዎች መቆጣጠሪያ';
 $lang['item'] = 'እቃ';
@@ -182,6 +182,13 @@ $lang['imp_deleted'] = 'የጠፋ ነውን?';
 /*************************
  * Table: Items
  *************************/
+
+$lang['impmessage'] = 'ገቢ የተደረገው እቃ በትክክል ተመዝግቧል';
+$lang['itemupdate'] = 'እቃው በትክክል ዘምኗል';
+$lang['itemmessage'] = 'እቃው በትክክል ተመዝግቧል';
+$lang['itemdelete'] = 'እቃው ከ ሰንጠረዡ በትክክል ተሰርዧል';
+$lang['impmessageupdate'] = 'ገቢ የሆነው እቃ መረጃው በትክክል ዘምኗል';
+$lang['impmessagedeleted'] = 'ገቢ የሆነው እቃው በትክክል ተሰርዟል';
 $lang['itm_id'] = 'መለያ ቁጥር';
 $lang['item_sold'] = 'ሽያጩ በትክክል ተከናውኗል';
 $lang['itm_name'] = 'የእቃው ስም';
@@ -205,7 +212,9 @@ $lang['LoginDate'] = '';
 /*************************
  * Table: Sales
  *************************/
-$lang['sell_quantity'] = 'የሚሸጠው አቃ ብዛት';
+$lang['sell_quantity'] = 'የሚሸጠው እቃ ብዛት';
+$lang['salesdelete'] = 'እቃው ከ ሰንጠረዡ ላይ ተሰርዟል';
+$lang['salesmessage'] = 'ሽያጩ በትክክል ተከናውኗል';
 $lang['sell_price'] = 'ያንዱ መሸጫ ዋጋ';
 $lang['save_sell'] = 'ሽጥ';
 $lang['sale_itm_id'] = 'እቃ';

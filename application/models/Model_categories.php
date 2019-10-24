@@ -27,9 +27,13 @@ class Model_categories extends CI_Model
     function get($id, $get_one = false)
     {
 
-        $select_statement = ($this->raw_data) ? 'cat_id,cat_name,cat_desc,cat_created_by,cat_remark,cat_deleted,cat_created_date' : 'cat_id,cat_name,cat_desc,cat_created_by,cat_remark,cat_deleted,cat_created_date';
+        $select_statement = ($this->raw_data) ? 'cat_id,cat_name,cat_desc,user_name as cat_created_by,
+        cat_remark,cat_deleted,cat_created_date' : 'cat_id,cat_name,cat_desc,user_name as cat_created_by,
+        cat_remark,cat_deleted,cat_created_date';
         $this->db->select($select_statement);
         $this->db->from('categories');
+        $this->db->join( 'users', 'users.user_emp_id =categories.cat_created_by', 'left' );
+
 
 
         // Pick one record
@@ -45,7 +49,9 @@ class Model_categories extends CI_Model
 
         if ($query->num_rows() > 0) {
             $row = $query->row_array();
-            return array('cat_id' => $row['cat_id'], 'cat_name' => $row['cat_name'], 'cat_desc' => $row['cat_desc'], 'cat_created_by' => $row['cat_created_by'], 'cat_remark' => $row['cat_remark'], 'cat_deleted' => $row['cat_deleted'], 'cat_created_date' => $row['cat_created_date'],);
+            return array('cat_id' => $row['cat_id'], 'cat_name' => $row['cat_name'], 'cat_desc' => $row['cat_desc'],
+                'cat_created_by' => $row['cat_created_by'], 'cat_remark' => $row['cat_remark'],
+                'cat_deleted' => $row['cat_deleted'], 'cat_created_date' => $row['cat_created_date'],);
         } else {
             return array();
         }

@@ -28,14 +28,15 @@ class Model_items extends CI_Model
 	{
         
 	    $select_statement = ( $this->raw_data ) ? 'itm_id,Itm_name,itm_minimum_price,itm_last_updated,
-	    itm_last_updated_by,itm_remark,brands.brand_id,itm_cat_id,item_created_by,itm_date_created,itm_available_quantity'
-	     : 'itm_id,Itm_name,itm_minimum_price,itm_last_updated,itm_last_updated_by,
-	     itm_remark,brands.brand_name AS brand_id,categories.cat_name AS itm_cat_id,item_created_by
+	    user_name as itm_last_updated_by,itm_remark,brands.brand_id,itm_cat_id,user_name as item_created_by,itm_date_created,itm_available_quantity'
+	     : 'itm_id,Itm_name,itm_minimum_price,itm_last_updated,user_name as itm_last_updated_by,
+	     itm_remark,brands.brand_name AS brand_id,categories.cat_name AS itm_cat_id,user_name as item_created_by
 	     ,itm_date_created,itm_available_quantity';
 		$this->db->select( $select_statement );
 		$this->db->from('items');
         $this->db->join( 'brands', 'items.brand_id = brands.brand_id', 'left' );
         $this->db->join( 'categories', 'itm_cat_id = cat_id', 'left' );
+        $this->db->join( 'users', 'users.user_emp_id = items.itm_last_updated_by or users.user_emp_id =items.item_created_by', 'left' );
 
 
 		// Pick one record

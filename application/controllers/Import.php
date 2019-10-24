@@ -137,16 +137,18 @@ class Import extends MY_Controller
                         $this->template->assign('metadata', $this->model_import->metadata());
                         $this->template->assign('table_name', 'Import');
                         $this->template->assign('template', 'form_import');
-
-                        $this->message = "Item import not successfull";
-                        $this->set_message($this->message);
                         $this->template->display('frame_admin.tpl');
 
                     } else {
                         $insert_id = $this->model_import->insert($data_post);
-                        $this->message = "Item imported successfully";
-                        $this->set_message($this->message);
-                        redirect('import');
+                        $this->template->assign('action_mode', 'create');
+                        $this->template->assign('message',lang('message'));
+                        $this->template->assign('import_data', $data_post);
+                        $this->template->assign('import_fields', $fields);
+                        $this->template->assign('metadata', $this->model_import->metadata());
+                        $this->template->assign('table_name', 'Import');
+                        $this->template->assign('template', 'form_import');
+                        $this->template->display('frame_admin.tpl');
 
 
                     }
@@ -199,7 +201,7 @@ class Import extends MY_Controller
                 $data_post['imp_item_id'] = $this->input->post('imp_item_id');
                 $data_post['imp_sold_amount'] = $this->input->post('imp_sold_amount');
                 $data_post['imp_item_amount'] = $this->input->post('imp_item_amount');
-                $data_post['imp_available_amount'] = $this->input->post('imp_available_amount');
+                $data_post['imp_available_amount'] = $this->input->post('imp_item_amount');
                 $data_post['imp_sale_itm_unit_price'] = $this->input->post('imp_sale_itm_unit_price');
                 $data_post['imp_min_sale_price'] = $this->input->post('imp_min_sale_price');
                 $data_post['imp_sub_total'] = $this->input->post('imp_sale_itm_unit_price') * $this->input->post('imp_item_amount');
@@ -208,7 +210,7 @@ class Import extends MY_Controller
                 $data_post['imp_inserted_by'] =  $this->user;
           // $data_post['cat_created_date'] = $this->currentDate;
 
-              
+
                 $data_post['imp_remark'] = $this->input->post('imp_remark');
                 $data_post['imp_Last_updated_by'] = $this->input->post('imp_Last_updated_by');
                 $data_post['imp_Last_update'] = $this->input->post('imp_Last_update');
@@ -233,8 +235,17 @@ class Import extends MY_Controller
 
                     } else {
                         $this->model_import->update($id, $data_post);
+                        $this->template->assign('message', lang('messageupdate'));
+                        $this->template->assign('action_mode', 'edit');
+                        $this->template->assign('import_data', $data_post);
+                        $this->template->assign('import_fields', $fields);
+                        $this->template->assign('metadata', $this->model_import->metadata());
+                        $this->template->assign('table_name', 'Import');
+                        $this->template->assign('template', 'form_import');
+                        $this->template->assign('record_id', $id);
+                        $this->template->display('frame_admin.tpl');
                     }
-                    redirect('import/show/' . $id);
+
                 }
                 break;
         }
@@ -247,16 +258,37 @@ class Import extends MY_Controller
      */
     function delete($id = FALSE)
     {
+        $fields = $this->model_import->fields();
+        $items_set = $this->model_import->related_items();
+        $fields = $this->model_import->fields(TRUE);
+        $todayImports = $this->model_import->filterbyDate($this->currentDate);
+        $this->template->assign('this_day_imports', $todayImports);
         switch ($_SERVER ['REQUEST_METHOD']) {
+
             case 'GET':
                 $this->model_import->delete($id);
-                redirect($_SERVER['HTTP_REFERER']);
+                $data_post['imp_item_id'] = $this->input->post('imp_item_id');
+                $data_post['imp_sold_amount'] = 0;
+                $data_post['imp_item_amount'] = $this->input->post('imp_item_amount');
+                $data_post['imp_available_amount'] = $this->input->post('imp_item_amount');
+                $data_post['imp_sale_itm_unit_price'] = $this->input->post('imp_sale_itm_unit_price');
+                $data_post['imp_min_sale_price'] = $this->input->post('imp_min_sale_price');
+                $data_post['imp_sub_total'] = $this->input->post('imp_sale_itm_unit_price') * $this->input->post('imp_item_amount');
+                $data_post['imp_date'] = $this->input->post('imp_date');
+                $data_post['imp_inserted_by'] = $this->user;
+                $data_post['imp_remark'] = $this->input->post('imp_remark');
+
+                $this->template->assign('message',lang('impmessagedeleted'));
+                $this->template->assign('action_mode', 'edit');
+                $this->template->assign('import_fields', $fields);
+                $this->template->assign('metadata', $this->model_import->metadata());
+                $this->template->assign('table_name', 'Import');
+                $this->template->assign('template', 'list_import');
+                $this->template->display('frame_admin.tpl');
+
                 break;
 
-            case 'POST':
-                $this->model_import->delete($this->input->post('delete_ids'));
-                redirect($_SERVER['HTTP_REFERER']);
-                break;
+
         }
     }
 }

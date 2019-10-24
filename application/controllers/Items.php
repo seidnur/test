@@ -95,6 +95,18 @@ $this->template->assign('template', 'form_items');
 $this->template->display('frame_admin.tpl');
 } elseif ($this->form_validation->run() == TRUE) {
 $insert_id = $this->model_items->insert($data_post);
+    $brands_set = $this->model_items->related_brands();
+    $categories_set = $this->model_items->related_categories();
+    $this->template->assign('related_brands', $brands_set);
+    $this->template->assign('related_categories', $categories_set);
+    $this->template->assign('message', lang('itemmessage'));
+    $this->template->assign('action_mode', 'create');
+    $this->template->assign('items_data', $data_post);
+    $this->template->assign('items_fields', $fields);
+    $this->template->assign('metadata', $this->model_items->metadata());
+    $this->template->assign('table_name', 'Items');
+    $this->template->assign('template', 'form_items');
+    $this->template->display('frame_admin.tpl');
 redirect('items');
 }
 break;
@@ -133,11 +145,13 @@ $this->form_validation->set_rules('Itm_name', lang('Itm_name'), 'required|max_le
 $this->form_validation->set_rules('brand_id', lang('brand_id'), 'required|max_length[11]|integer');
 $this->form_validation->set_rules('itm_cat_id', lang('itm_cat_id'), 'required|max_length[11]|integer');
 $data_post['Itm_name'] = $this->input->post('Itm_name');
-$data_post['itm_last_updated'] =   $this->user;
+$data_post['itm_last_updated'] =   $this->currentDate;
 $data_post['itm_last_updated_by'] = $this->user;
 $data_post['itm_remark'] = $this->input->post('itm_remark');
 $data_post['brand_id'] = $this->input->post('brand_id');
 $data_post['itm_cat_id'] = $this->input->post('itm_cat_id');
+    $data_post['itm_available_quantity'] = $this->input->post('itm_available_quantity');
+
 $data_post['itm_available_quantity'] = $this->input->post('itm_available_quantity');
 if ($this->form_validation->run() == FALSE) {
 $errors = validation_errors();
@@ -156,7 +170,20 @@ $this->template->assign('record_id', $id);
 $this->template->display('frame_admin.tpl');
 } elseif ($this->form_validation->run() == TRUE) {
 $this->model_items->update($id, $data_post);
-redirect('items/show/' . $id);
+    $brands_set = $this->model_items->related_brands();
+    $categories_set = $this->model_items->related_categories();
+    $this->template->assign('related_brands', $brands_set);
+    $this->template->assign('related_categories', $categories_set);
+    $this->template->assign('action_mode', 'edit');
+    $this->template->assign('message', lang('itemupdate'));
+    $this->template->assign('items_data', $data_post);
+    $this->template->assign('items_fields', $fields);
+    $this->template->assign('metadata', $this->model_items->metadata());
+    $this->template->assign('table_name', 'Items');
+    $this->template->assign('template', 'form_items');
+    $this->template->assign('record_id', $id);
+    $this->template->display('frame_admin.tpl');
+//redirect('items/show/' . $id);
 }
 break;
 }
@@ -167,14 +194,19 @@ break;
 */
 function delete ($id = FALSE)
 {
+    $fields = $this->model_items->fields();
 switch ($_SERVER ['REQUEST_METHOD']) {
 case 'GET':
 $this->model_items->delete($id);
-redirect($_SERVER['HTTP_REFERER']);
-break;
-case 'POST':
-$this->model_items->delete($this->input->post('delete_ids'));
-redirect($_SERVER['HTTP_REFERER']);
+
+    $this->template->assign('action_mode', 'edit');
+    $this->template->assign('message', lang('itemdelete'));
+    $this->template->assign('items_fields', $fields);
+    $this->template->assign('metadata', $this->model_items->metadata());
+    $this->template->assign('table_name', 'Items');
+    $this->template->assign('template', 'form_items');
+    $this->template->assign('record_id', $id);
+    $this->template->display('frame_admin.tpl');
 break;
 }
 }

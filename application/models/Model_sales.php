@@ -28,10 +28,10 @@ class Model_sales extends CI_Model
     {
         $meta = $this->metadata();
         $select_statement = ($this->raw_data) ? 'sale_itm_id,items.itm_name,sale_item_amount,
-			    Date_sold,soled_by,sale_remark,
+			    Date_sold,soled_by,sale_remark,user_name as soled_by,
 			    sold_price,profit,sale_vat,sale_payment_option,sale_buyer_info,Sale_sub_total,sale_id,returned' : 'items.itm_name AS sale_itm_id,sale_item_amount,Date_sold,
 			    soled_by,profit,sale_vat,sale_remark,sold_price,sale_payment_option,
-			    sale_buyer_info,Sale_sub_total,sale_id,returned';
+			    sale_buyer_info,Sale_sub_total,sale_id,returned,user_name as soled_by';
         $this->db->select($select_statement);
         $this->db->from('sales');
 
@@ -44,11 +44,16 @@ class Model_sales extends CI_Model
             $this->db->where('sale_id', $id);
         }
         $this->db->join('items', 'sales.sale_itm_id=items.itm_id', 'left');
+        $this->db->join('users', 'users.user_emp_id=sales.soled_by', 'left');
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
             $row = $query->row_array();
-            return array('sale_itm_id' => $row['sale_itm_id'], 'sale_item_amount' => $row['sale_item_amount'], 'Date_sold' => $row['Date_sold'], 'soled_by' => $row['soled_by'], 'sale_remark' => $row['sale_remark'], 'sold_price' => $row['sold_price'], 'sale_vat' => $row['sale_vat'], 'profit' => $row['profit'], 'sale_payment_option' => $row['sale_payment_option'], 'sale_buyer_info' => $row['sale_buyer_info'], 'Sale_sub_total' => $row['Sale_sub_total'], 'sale_id' => $row['sale_id'], 'returned' => $row['returned'],);
+            return array('sale_itm_id' => $row['sale_itm_id'],
+                'sale_item_amount' => $row['sale_item_amount'],
+                'Date_sold' => $row['Date_sold'], 'soled_by' => $row['soled_by'],
+                'sale_remark' => $row['sale_remark'], 'sold_price' => $row['sold_price'],
+                'sale_vat' => $row['sale_vat'], 'profit' => $row['profit'], 'sale_payment_option' => $row['sale_payment_option'], 'sale_buyer_info' => $row['sale_buyer_info'], 'Sale_sub_total' => $row['Sale_sub_total'], 'sale_id' => $row['sale_id'], 'returned' => $row['returned'],);
         } else {
             return array();
         }
