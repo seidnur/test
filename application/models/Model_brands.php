@@ -27,7 +27,7 @@ class Model_brands extends CI_Model
 	function get ( $id, $get_one = false )
 	{
         
-	    $select_statement = ( $this->raw_data ) ? 'brand_id,brand_name,brand_cat_id,brand_description' : 'brand_id,brand_name,categories.cat_name as brand_cat_id,brand_description';
+	    $select_statement = ( $this->raw_data ) ? 'brand_id,brand_name,brand_cat_id,brand_description,brand_created_by' : 'brand_id,brand_name,categories.cat_name as brand_cat_id,brand_description,brand_created_by';
 		$this->db->select( $select_statement );
 		$this->db->from('brands');
         
@@ -194,6 +194,7 @@ class Model_brands extends CI_Model
 		{
 			$temp_result[] = array( 
 	'brand_id' => $row['brand_id'],
+	'brand_created_by' => $row['brand_created_by'],
 	'brand_name' => $row['brand_name'],
 	'brand_description' => $row['brand_description'],
  );
@@ -219,6 +220,7 @@ class Model_brands extends CI_Model
     {
         $fs = array(
 	'brand_id' => lang('brand_id'),
+	'brand_created_by' => lang('brand_created_by'),
 	'brand_name' => lang('brand_name'),
 	'brand_description' => lang('brand_description'),
     'brand_cat_id' => lang('brand_cat_id')

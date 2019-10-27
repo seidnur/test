@@ -16,6 +16,7 @@
                         <th width="20"></th>
 			<th>{$brands_fields.brand_name}</th>
 			<th>{$brands_fields.brand_description}</th>
+                        <th>{$brands_fields.brand_created_by}</th>
 
                         <th width="80">Actions</th>
                         </thead>

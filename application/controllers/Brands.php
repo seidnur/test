@@ -62,8 +62,9 @@
 	case 'POST':
 	$fields = $this->model_brands->fields();
 	/* we set the rules */
-	$this->form_validation->set_rules( 'brand_name', lang('brand_name'), 'required|max_length[20]' );
-	$this->form_validation->set_rules( 'brand_description', lang('brand_description'), 'required' );
+//	$this->form_validation->set_rules( 'brand_name', lang('brand_name'), 'required|max_length[20]' );
+//	$this->form_validation->set_rules( 'brand_description', lang('brand_description'), 'required' );
+	$this->form_validation->set_rules( 'brand_cat_id', lang('brand_cat_id'), 'required' );
 	$data_post['brand_name'] = $this->input->post( 'brand_name' );
 	$data_post['brand_description'] = $this->input->post( 'brand_description' );
 	$data_post['brand_cat_id'] = $this->input->post( 'brand_cat_id' );
@@ -85,7 +86,15 @@
 	elseif ( $this->form_validation->run() == TRUE )
 	{
 	$insert_id = $this->model_brands->insert( $data_post );
-	redirect( 'brands' );
+        $this->template->assign( 'brands_fields', $fields );
+        $this->template->assign( 'action_mode', 'create' );
+        $this->template->assign( 'brands_data', $data_post );
+        $this->template->assign( 'message', lang('message') );
+        $this->template->assign( 'metadata', $this->model_brands->metadata() );
+        $this->template->assign( 'table_name', 'Brands' );
+        $this->template->assign( 'template', 'form_brands' );
+        $this->template->display( 'frame_admin.tpl' );
+
 	}
 	break;
 	}
@@ -121,6 +130,8 @@
 	/* don't forget to edit these */
 	$this->form_validation->set_rules( 'brand_name', lang('brand_name'), 'required|max_length[20]' );
 	$this->form_validation->set_rules( 'brand_description', lang('brand_description'), 'required' );
+	$this->form_validation->set_rules( 'brand_description', lang('brand_description'), 'required' );
+
 	$data_post['brand_name'] = $this->input->post( 'brand_name' );
 	$data_post['brand_description'] = $this->input->post( 'brand_description' );
 	$data_post['brand_cat_id'] = $this->input->post( 'brand_cat_id' );
@@ -140,7 +151,13 @@
 	elseif ( $this->form_validation->run() == TRUE )
 	{
 	$this->model_brands->update( $id, $data_post );
-	redirect( 'brands/show/' . $id );   
+        $this->template->assign( 'action_mode', 'edit' );
+        $this->template->assign( 'message', lang('editbrand') );
+        $this->template->assign( 'brands_fields', $fields );
+        $this->template->assign( 'table_name', 'Brands' );
+        $this->template->assign( 'template', 'list_brands' );
+        $this->template->assign( 'record_id', $id );
+        $this->template->display( 'frame_admin.tpl' );
 	}
 	break;
 	}
@@ -155,7 +172,14 @@
 	{
 	case 'GET':
 	$this->model_brands->delete( $id );
-	redirect( $_SERVER['HTTP_REFERER'] );
+        $this->template->assign( 'action_mode', 'edit' );
+        $this->template->assign( 'message', lang('deletebrand') );
+        $this->template->assign( 'metadata', $this->model_brands->metadata() );
+        $this->template->assign( 'table_name', 'Brands' );
+        $this->template->assign( 'template', 'list_brands' );
+        $this->template->assign( 'record_id', $id );
+        $this->template->display( 'frame_admin.tpl' );
+
 	break;
 	case 'POST':
 	$this->model_brands->delete( $this->input->post('delete_ids') );

@@ -19,17 +19,7 @@
                                     </div>
                                 </div>
                             {/if}
-                            <?php if($this->session->flashdata('success')): ?>
-            <div class="alert alert-success alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <?php echo $this->session->flashdata('success'); ?>
-            </div>
-          <?php elseif($this->session->flashdata('error')): ?>
-            <div class="alert alert-error alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <?php echo $this->session->flashdata('error'); ?>
-            </div>
-          <?php endif; ?>
+
                             <form class="form" method='post' action='users/{$action_mode}/{if isset($record_id)}{$record_id}{/if}' enctype="multipart/form-data">
     <div class="col-lg-12" style="margin-top:20px">
                                 <div class="col-lg-6">

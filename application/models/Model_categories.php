@@ -111,58 +111,6 @@ class Model_categories extends CI_Model
             $config['uri_segment'] = 3;
             $config['per_page'] = $this->pagination_per_page;
             $config['num_links'] = $this->pagination_num_links;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             // Customizing the First Link
             $config['first_link'] = 'First';        // default: 'First'
             $config['first_tag_open'] = '<li>';            // default: '<div>'

@@ -92,7 +92,14 @@ $this->template->display( 'frame_admin.tpl' );
 elseif ( $this->form_validation->run() == TRUE )
 {
 $insert_id = $this->model_categories->insert( $data_post );
-redirect( 'categories' );
+    $this->template->assign( 'action_mode', 'create' );
+    $this->template->assign( 'categories_data', $data_post );
+    $this->template->assign( 'categories_fields', $fields );
+    $this->template->assign( 'message', lang('message') );
+    $this->template->assign( 'metadata', $this->model_categories->metadata() );
+    $this->template->assign( 'table_name', 'Categories' );
+    $this->template->assign( 'template', 'form_categories' );
+    $this->template->display( 'frame_admin.tpl' );
 }
 break;
 }
@@ -127,6 +134,7 @@ $this->form_validation->set_rules( 'cat_name', lang('cat_name'), 'required|max_l
 $this->form_validation->set_rules( 'cat_desc', lang('cat_desc'), 'required' );
 $this->form_validation->set_rules( 'cat_remark', lang('cat_remark'), 'required' );
 $this->form_validation->set_rules( 'cat_deleted', lang('cat_deleted'), '11' );
+$data_post['cat_id'] = $this->input->post( 'cat_id' );
 $data_post['cat_name'] = $this->input->post( 'cat_name' );
 $data_post['cat_desc'] = $this->input->post( 'cat_desc' );
 $data_post['cat_remark'] = $this->input->post( 'cat_remark' );
@@ -149,7 +157,16 @@ $this->template->display( 'frame_admin.tpl' );
 elseif ( $this->form_validation->run() == TRUE )
 {
 $this->model_categories->update( $id, $data_post );
-redirect( 'categories/show/' . $id );   
+    $this->template->assign( 'action_mode', 'edit' );
+    $this->template->assign( 'message', lang('editcategories') );
+    $this->template->assign( 'categories_data', $data_post );
+    $this->template->assign( 'categories_fields', $fields );
+    $this->template->assign( 'metadata', $this->model_categories->metadata() );
+    $this->template->assign( 'table_name', 'Categories' );
+    $this->template->assign( 'template', 'form_categories' );
+    $this->template->assign( 'template', 'show_categories' );
+    $this->template->assign( 'record_id', $id );
+    $this->template->display( 'frame_admin.tpl' );
 }
 break;
 }
@@ -164,7 +181,12 @@ switch ( $_SERVER ['REQUEST_METHOD'] )
 {
 case 'GET':
 $this->model_categories->delete( $id );
-redirect( $_SERVER['HTTP_REFERER'] );
+    $fields = $this->model_categories->fields();
+      $this->template->assign( 'message', lang('deletecategories') );
+    $this->template->assign( 'categories_fields', $fields );
+    $this->template->assign( 'table_name', 'Categories' );
+    $this->template->assign( 'template', 'list_categories' );
+    $this->template->display( 'frame_admin.tpl' );
 break;
 case 'POST':
 $this->model_categories->delete( $this->input->post('delete_ids') );

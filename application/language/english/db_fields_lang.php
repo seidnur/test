@@ -58,14 +58,21 @@ $lang['zeka'] = 'Zeka';
  * Table: Brands
  *************************/
 $lang['brand_id'] = 'Id';
+$lang['message'] = 'Brand successfully saved';
+$lang['editbrand'] = 'Brand successfully updated';
+$lang['deletebrand'] = 'brand list deleted';
 $lang['itm_name'] = 'Item name';
 $lang['brand_name'] = 'Name';
 $lang['brand_description'] = 'Description';
+$lang['Brands'] = 'Brand';
 
 
 /*************************
  * Table: Categories
  *************************/
+$lang['Categories'] = 'Categories';
+$lang['editcategories'] = 'categories successfully updated';
+$lang['deletecategories'] = 'categories list deleted';
 $lang['cat_id'] = 'id';
 $lang['cat_name'] = 'Category name';
 $lang['cat_desc'] = 'Description';

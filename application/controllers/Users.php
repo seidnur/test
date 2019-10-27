@@ -73,7 +73,7 @@ $this->form_validation->set_rules( 'user_password', lang('user_password'), 'requ
 $this->form_validation->set_rules( 'user_emp_id', lang('user_emp_id'), 'required|max_length[11]|integer' );
 $this->form_validation->set_rules( 'user_remark', lang('user_remark'), 'required' );
 $this->form_validation->set_rules( 'user_accout_status', lang('user_accout_status'), 'max_length[11]' );
-$this->form_validation->set_rules( 'user_email', lang('user_email'), 'max_length[50]' );
+$this->form_validation->set_rules( 'user_email', lang('user_email'), 'required' );
 $data_post['user_name'] = $this->input->post( 'user_name' );
 $options = ['cost' => 12];
 $data_post['user_password'] = password_hash($this->input->post( 'user_password' ), PASSWORD_BCRYPT, $options);

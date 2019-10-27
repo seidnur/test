@@ -13,7 +13,7 @@
                 </h3>          
                   {if !empty( $categories_data )}
                 <form action="categories/delete" method="post" id="listing_form">
-                    <table class="table table-responsive">
+                    <table class="table table-responsive" id="">
                         <thead>
                         <th width="20" class=" hidden-xs hidden-sm"></th>
                         <th title="Name of category">{$categories_fields.cat_name}</th>
@@ -59,7 +59,6 @@
             {else}
                 {lang('no_records_found')}
             {/if}
-
-        </div><!-- .inner -->
+                  </div><!-- .inner -->
     </div><!-- .content -->
 </div><!-- .block -->

@@ -6,7 +6,7 @@
 
            <h3>
                 {if $selected_language=='english'}
-                   {lang('details')} {lang('of')} {lang("$table_name")} {lang('record')} #{$id}
+                   {lang('details')} {lang('of')} {lang("$table_name")} {lang('record')}
                 {elseif $selected_language=='amharic'}
                           {lang('of')}{lang("$table_name")} {lang('record')} #{$id} {lang('details')}  
                 {/if}    
@@ -15,8 +15,7 @@
             <table class="table table-responsive" width="50%">
                
                 <tr class="{cycle values='odd,even'}">
-                            <td>{$categories_fields.cat_id}:</td>
-                            <td>{$categories_data.cat_id}</td>
+
                         </tr><tr class="{cycle values='odd,even'}">
                             <td>{$categories_fields.cat_name}:</td>
                             <td>{$categories_data.cat_name}</td>
@@ -39,7 +38,7 @@
             </table>
             <div class="actions-bar wat-cf">
                 <div class="actions">
-                    <a class="btn btn-warning" href="categories/edit/{$id}">
+                    <a class="btn btn-warning" href="categories/edit/{$categories_data.cat_id}">
                         <span class="fa fa-edit"></span> Edit record
                     </a>
                 </div>

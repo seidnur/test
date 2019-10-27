@@ -1,10 +1,8 @@
 <div class="panel panel-default">
                 <div class="panel-body">
-                  
-                        <a class="btn btn-sm btn-warning" href="brands">
+                    <a class="btn btn-sm btn-warning" href="brands">
                          <span class="fa fa-list"></span>  {lang('listing')}</a>
                         <a class="btn btn-success btn-sm" href="brands/create/"> <span class="fa fa-plus"></span> {lang('new_record')}</a>
-                 
                     <div class="inner">
                         {if $action_mode == 'create'}
                             <h3>{lang('new_record')}</h3>

@@ -37,7 +37,7 @@
     		
     	</div>
 
-    
+
     	<div class="form-group">
             <label>{$categories_fields.cat_remark}<span class="error">*</span></label>
     		<div>

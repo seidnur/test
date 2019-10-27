@@ -79,13 +79,21 @@ $lang['zeka'] = 'ዘካ';
  *************************/
 $lang['brand_id'] = 'መለያ ቁጥር';
 $lang['brand_name'] = 'የብራንድ ስም';
+$lang['editbrand'] = 'የ እቃው መደብ በትክክል ዘምኗል';
+$lang['deletebrand'] = 'የ እቃው መደብ ከ መዘርዝሩ በትክክል ተሰርዟል';
 $lang['brand_description'] = 'ማብራሪያ';
 $lang['brand_cat_id'] = 'መደብ';
+$lang['message'] = 'ብራንዱ በትክክል ተመዝግቧል';
 
 /*************************
  * Table: Categories
  *************************/
+$lang['Categories'] = 'መደብ';
+$lang['deletecategories'] = 'የ እቃው መደብ ከ ዝርዝሩ በትክክል ተሰርዟል';
+
+$lang['editcategories'] = 'የ እቃው መደብ በትክክል ዘምኗል';
 $lang['cat_id'] = 'የአይነት መለያ ቁጥር';
+$lang['message'] = 'የ እቃው መደብ በትክክል ተመዝግቧል';
 $lang['cat_name'] = 'ስም';
 $lang['cat_desc'] = 'ማብራሪያ';
 $lang['cat_created_by'] = 'የመዘገበው';
