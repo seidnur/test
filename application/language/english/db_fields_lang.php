@@ -34,7 +34,6 @@ $lang['no_stock_found'] = 'there is no item for sales
  * Table names
  *************************/
 $lang['brand_cat_id'] = 'brand category';
-
 $lang['brands'] = 'Brands';
 $lang['categories'] = 'Categories';
 $lang['credit'] = 'Credit';
@@ -44,6 +43,7 @@ $lang['import'] = 'Imported Item List';
 $lang['Import'] = 'Import Management';
 $lang['items'] = 'Items';
 $lang['expense_type'] = 'Expense Type';
+$lang['Expense_type'] = 'Expense Type';
 $lang['expenses'] = 'Expenses';
 $lang['logins'] = 'Logins';
 $lang['sales'] = 'Sales Management';
@@ -57,7 +57,9 @@ $lang['zeka'] = 'Zeka';
 /*************************
  * Table: Brands
  *************************/
+
 $lang['brand_id'] = 'Id';
+$lang['brand_created_by'] = 'created by';
 $lang['message'] = 'Brand successfully saved';
 $lang['editbrand'] = 'Brand successfully updated';
 $lang['deletebrand'] = 'brand list deleted';
@@ -109,6 +111,10 @@ $lang['cr_status'] = 'returned?';
 /*************************
  * Table: Employee
  *************************/
+$lang['Employee'] = 'Employee';
+$lang['empmessage'] = 'Employee successfully saved';
+$lang['empupdatemessage'] = 'Employee list updated';
+$lang['empdeletemessage'] = 'Employee list deleted';
 $lang['emp_user_id'] = 'Id';
 $lang['emp_full_name'] = 'Full name';
 $lang['emp_first_name'] = 'First name';
@@ -216,6 +222,7 @@ $lang['BankTransfer'] = 'BankTransfer';
  * Table: Usergroup
  *************************/
 $lang['id'] = 'Id';
+$lang['Usergroup'] = 'User Group';
 $lang['group_user_id'] = 'User id';
 $lang['group_id'] = 'Group';
 $lang['group_created_by'] = 'Created by';
@@ -238,6 +245,9 @@ $lang['user_email'] = 'Email';
 /*************************
  * Table: Expense_type
  *************************/
+$lang['expmessage'] = 'expense type successfully saved';
+$lang['expupdatemessage'] = 'expense type list updated';
+$lang['expdeletemessage'] = 'expense type list deleted';
 $lang['exp_type_id'] = 'Type id';
 $lang['exp_type_name'] = 'Type name';
 $lang['exp_type_created_by'] = 'Created by';
@@ -249,6 +259,7 @@ $lang['is_deleted'] = 'Deleted?';
  * Table: Expenses
  *************************/
 $lang['exp_id'] = 'expense id';
+$lang['Expenses'] = 'expenses';
 $lang['exp_reason_id'] = 'Reason';
 $lang['year'] = 'Year';
 $lang['Month'] = 'Month';

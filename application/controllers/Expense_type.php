@@ -86,7 +86,7 @@ class Expense_type extends MY_controller
 				$this->form_validation->set_rules( 'exp_type_name', lang('exp_type_name'), 'required|max_length[100]' );
 				$this->form_validation->set_rules( 'exp_type_remark', lang('exp_type_remark'), 'required' );
 				$data_post['exp_type_name'] = $this->input->post( 'exp_type_name' );
-				$data_post['exp_type_created_by'] = $this->input->post( 'exp_type_created_by' )==null?1:0;
+                $data_post['exp_type_created_by'] = $this->user;
 				$data_post['exp_created_date'] =date('Y-m-d');
 				$data_post['exp_type_remark'] = $this->input->post( 'exp_type_remark' );
 				$data_post['is_deleted'] = $this->input->post( 'is_deleted' )==null?0:1;
@@ -110,8 +110,14 @@ class Expense_type extends MY_controller
                 elseif ( $this->form_validation->run() == TRUE )
                 {
                     $insert_id = $this->model_expense_type->insert( $data_post );
-                    
-					redirect( 'expense_type' );
+                    $this->template->assign( 'message', lang('expmessage') );
+                    $this->template->assign( 'action_mode', 'create' );
+                    $this->template->assign( 'expense_type_data', $data_post );
+                    $this->template->assign( 'expense_type_fields', $fields );
+                    $this->template->assign( 'metadata', $this->model_expense_type->metadata() );
+                    $this->template->assign( 'table_name', 'Expense_type' );
+                    $this->template->assign( 'template', 'form_expense_type' );
+                    $this->template->display( 'frame_admin.tpl' );
                 }
             break;
         }
@@ -152,21 +158,14 @@ class Expense_type extends MY_controller
                 /* don't forget to edit these */
 				$this->form_validation->set_rules( 'exp_type_name', lang('exp_type_name'), 'required|max_length[100]' );
 				$this->form_validation->set_rules( 'exp_type_remark', lang('exp_type_remark'), 'required' );
-				$this->form_validation->set_rules( 'is_deleted', lang('is_deleted'), 'required|max_length[11]|integer' );
-
+				//->form_validation->set_rules( 'is_deleted', lang('is_deleted'), 'required|max_length[11]|integer' );
 				$data_post['exp_type_name'] = $this->input->post( 'exp_type_name' );
-				$data_post['exp_type_created_by'] = $this->input->post( 'exp_type_created_by' );
-				$data_post['exp_created_date'] = $this->input->post( 'exp_created_date' );
-				$data_post['exp_type_remark'] = $this->input->post( 'exp_type_remark' );
+				$data_post['exp_type_updater_id'] = $this->user;
+            	$data_post['exp_type_remark'] = $this->input->post( 'exp_type_remark' );
 				$data_post['is_deleted'] = $this->input->post( 'is_deleted' );
-
                 if ( $this->form_validation->run() == FALSE )
                 {
                     $errors = validation_errors();
-                    
-                    
-                    
-                    
               		$this->template->assign( 'action_mode', 'edit' );
               		$this->template->assign( 'errors', $errors );
             		$this->template->assign( 'expense_type_data', $data_post );
@@ -180,8 +179,15 @@ class Expense_type extends MY_controller
                 elseif ( $this->form_validation->run() == TRUE )
                 {
 				    $this->model_expense_type->update( $id, $data_post );
-				    
-					redirect( 'expense_type/show/' . $id );   
+
+                    $this->template->assign( 'message', lang('expupdatemessage') );
+                    $this->template->assign( 'action_mode', 'create' );
+                    $this->template->assign( 'expense_type_data', $data_post );
+                    $this->template->assign( 'expense_type_fields', $fields );
+                    $this->template->assign( 'metadata', $this->model_expense_type->metadata() );
+                    $this->template->assign( 'table_name', 'Expense_type' );
+                    $this->template->assign( 'template', 'form_expense_type' );
+                    $this->template->display( 'frame_admin.tpl' );
                 }
             break;
         }
@@ -195,11 +201,18 @@ class Expense_type extends MY_controller
      */
     function delete( $id = FALSE )
     {
+        $fields = $this->model_expense_type->fields();
         switch ( $_SERVER ['REQUEST_METHOD'] )
         {
             case 'GET':
                 $this->model_expense_type->delete( $id );
-                redirect( $_SERVER['HTTP_REFERER'] );
+                $this->template->assign( 'message', lang('expdeletemessage') );
+                $this->template->assign( 'action_mode', 'create' );
+                $this->template->assign( 'expense_type_fields', $fields );
+                $this->template->assign( 'metadata', $this->model_expense_type->metadata() );
+                $this->template->assign( 'table_name', 'Expense_type' );
+                $this->template->assign( 'template', 'form_expense_type' );
+                $this->template->display( 'frame_admin.tpl' );
             break;
 
             case 'POST':

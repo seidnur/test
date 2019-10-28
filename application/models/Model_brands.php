@@ -27,7 +27,9 @@ class Model_brands extends CI_Model
 	function get ( $id, $get_one = false )
 	{
         
-	    $select_statement = ( $this->raw_data ) ? 'brand_id,brand_name,brand_cat_id,brand_description,brand_created_by' : 'brand_id,brand_name,categories.cat_name as brand_cat_id,brand_description,brand_created_by';
+	    $select_statement = ( $this->raw_data ) ? 'brand_id,brand_name,brand_cat_id,brand_description,
+	    brand_created_by' : 'brand_id,brand_name,categories.cat_name as brand_cat_id,brand_description,
+	    brand_created_by';
 		$this->db->select( $select_statement );
 		$this->db->from('brands');
         
@@ -49,10 +51,11 @@ class Model_brands extends CI_Model
 		if ( $query->num_rows() > 0 )
 		{
 			$row = $query->row_array();
-			return array( 
-	'brand_id' => $row['brand_id'],
+			return array(
+			    'brand_id' => $row['brand_id'],
+	'brand_created_by' => $row['brand_created_by'],
 	'brand_name' => $row['brand_name'],
-        'brand_cat_id' => $row['brand_cat_id'],
+     'brand_cat_id' => $row['brand_cat_id'],
     
 	'brand_description' => $row['brand_description'],
  );
@@ -103,7 +106,7 @@ class Model_brands extends CI_Model
 	{
         
 	    $this->db->start_cache();
-		$this->db->select( 'brand_id,brand_name,brand_description');
+		$this->db->select( 'brand_id,brand_created_by,brand_name,brand_description');
 		$this->db->from( 'brands' );
 		//$this->db->order_by( '', 'ASC' );
         
@@ -138,7 +141,7 @@ class Model_brands extends CI_Model
 
 		foreach ( $query->result_array() as $row )
 		{
-			$temp_result[] = array( 
+	$temp_result[] = array(
 	'brand_id' => $row['brand_id'],
 	'brand_name' => $row['brand_name'],
 	'brand_description' => $row['brand_description'],

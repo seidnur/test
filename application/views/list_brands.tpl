@@ -17,7 +17,6 @@
 			<th>{$brands_fields.brand_name}</th>
 			<th>{$brands_fields.brand_description}</th>
                         <th>{$brands_fields.brand_created_by}</th>
-
                         <th width="80">Actions</th>
                         </thead>
                         <tbody>
@@ -26,6 +25,7 @@
                                 <td><input type="checkbox" class="checkbox" name="delete_ids[]"
                                            value="{$row.brand_id}"/></td>
 				<td>{$row.brand_name}</td>
+          <td>{$row.brand_name}</td>
 				<td>{$row.brand_description}</td>
 
                                 <td width="80">

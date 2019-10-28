@@ -27,7 +27,7 @@ class Model_users extends CI_Model
 	function get ( $id, $get_one = false )
 	{
 
-		$select_statement = ( $this->raw_data ) ? 'id,user_name,user_password,user_emp_id,user_created_date,user_created_by,user_remark,user_accout_status,user_email' : 'id,user_name,user_password,employee.emp_first_name AS user_emp_id,user_created_date,user_created_by,user_remark,user_accout_status,user_email';
+		$select_statement = ( $this->raw_data ) ? 'id,user_name,user_password,user_emp_id,user_name as user_created_date,user_created_by,user_remark,user_accout_status,user_email' : 'id,user_name,user_password,employee.emp_first_name AS user_emp_id,user_created_date,user_name as user_created_by,user_remark,user_accout_status,user_email';
 		$this->db->select( $select_statement );
 		$this->db->from('users');
 		$this->db->join( 'employee', 'user_emp_id = emp_user_id', 'left' );

@@ -27,11 +27,11 @@
 		function get ($id, $get_one = false)
 		{
 
-			$select_statement = ($this->raw_data) ? 'usergroup.id,group_user_id,group_id,group_created_by,group_remark,group_created_date' :
-			 'usergroup.id,users.user_name AS group_user_id,group.group_name AS group_id,group_created_by,group_remark,group_created_date';
+			$select_statement = ($this->raw_data) ? 'usergroup.id,group_user_id,group_id,users.user_name as group_created_by,group_remark,group_created_date' :
+			 'usergroup.id,users.user_name AS group_user_id,group.group_name AS group_id,users.user_name as group_created_by,group_remark,group_created_date';
 			$this->db->select($select_statement);
 			$this->db->from('usergroup');
-			$this->db->join('users', 'group_user_id = users.id', 'left');
+			$this->db->join('users', 'user_emp_id = group_created_by', 'left');
 			$this->db->join('group', 'group_id = group.id', 'left');
 
 

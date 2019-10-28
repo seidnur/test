@@ -79,7 +79,7 @@
                     <div class="form-group">
                         <label>{$employee_fields.emp_hire_date}<span class="error">*</span></label>
                         <div>
-                            <input class="form-control datepicker" type="text" required maxlength="255"
+                            <input class="form-control datepicker" type="text" maxlength="255"
                             value="{if isset($employee_data)}{$employee_data.emp_hire_date}{/if}"
                             name="emp_hire_date"/>
                         </div>
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>{$employee_fields.emp_salary}</label>
+                        <label>{$employee_fields.emp_salary}<span class="error">*</span></label>
                         <div>
                             <input class="form-control" type="number" maxlength="255"
                             value="{if isset($employee_data)}{$employee_data.emp_salary}{/if}"
@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>{$employee_fields.emp_phone}</label>
+                        <label>{$employee_fields.emp_phone}<span class="error">*</span></label>
                         <div>
                             <input class="form-control" type="text" required maxlength="255"
                             value="{if isset($employee_data)}{$employee_data.emp_phone}{/if}"
@@ -118,7 +118,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>{$employee_fields.emp_email}</label>
+                        <label>{$employee_fields.emp_email}<span class="error">*</span></label>
                         <div>
                             <input class="form-control" type="text" maxlength="255"
                             value="{if isset($employee_data)}{$employee_data.emp_email}{/if}"

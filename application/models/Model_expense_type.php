@@ -27,12 +27,14 @@ class Model_expense_type extends CI_Model
 	function get ( $id, $get_one = false )
 	{
         
-	    $select_statement = ( $this->raw_data ) ? 'exp_type_id,exp_type_name,exp_type_created_by,exp_created_date,exp_type_remark,is_deleted' : 'exp_type_id,exp_type_name,exp_type_created_by,exp_created_date,exp_type_remark,is_deleted';
+	    $select_statement = ( $this->raw_data ) ? 'exp_type_id,exp_type_name,users.user_name as exp_type_created_by,exp_created_date,exp_type_remark,is_deleted' : 'exp_type_id,exp_type_name,users.user_name as exp_type_created_by,exp_created_date,exp_type_remark,is_deleted';
 		$this->db->select( $select_statement );
 		$this->db->from('expense_type');
-        
+        $this->db->join('users', 'users.user_emp_id= expense_type.exp_type_created_by', 'left');
 
-		// Pick one record
+
+
+        // Pick one record
 		// Field order sample may be empty because no record is requested, eg. create/GET event
 		if( $get_one )
         {

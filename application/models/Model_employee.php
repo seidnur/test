@@ -27,10 +27,13 @@ class Model_employee extends CI_Model
 	function get ( $id, $get_one = false )
 	{
         
-	    $select_statement = ( $this->raw_data ) ? 'emp_user_id,emp_first_name,emp_middle_name,emp_last_name,emp_gender,emp_birth_date,emp_hire_date,emp_created_by,emp_date_created,emp_remark,emp_salary,emp_phone,emp_email' : 'emp_user_id,emp_first_name,emp_middle_name,emp_last_name,emp_gender,emp_birth_date,emp_hire_date,emp_created_by,emp_date_created,emp_remark,emp_salary,emp_phone,emp_email';
+	    $select_statement = ( $this->raw_data ) ? 'emp_user_id,emp_first_name,emp_middle_name,emp_last_name,emp_gender,emp_birth_date,
+	    emp_hire_date,users.user_name as emp_created_by,
+	    emp_date_created,emp_remark,emp_salary,emp_phone,emp_email' : 'emp_user_id,
+	    emp_first_name,emp_middle_name,emp_last_name,emp_gender,emp_birth_date,emp_hire_date,users.user_name as emp_created_by,emp_date_created,emp_remark,emp_salary,emp_phone,emp_email';
 		$this->db->select( $select_statement );
 		$this->db->from('employee');
-        
+        $this->db->join('users', 'users.user_emp_id= employee.emp_created_by', 'left');
 
 		// Pick one record
 		// Field order sample may be empty because no record is requested, eg. create/GET event

@@ -124,6 +124,10 @@ $lang['cr_status'] = 'ሁኔታ';
 /*************************
  * Table: Employee
  *************************/
+$lang['employee'] = 'ሰራተኛ';
+$lang['empmessage'] = 'የ ሰራተኛው ታሪክ በትክክል ተመዝግቧል';
+$lang['empupdatemessage'] = 'የ ሰራተኛው ታሪክ በትክክል ዘምኗል';
+$lang['empdeletemessage'] = 'ሰራተኛው ከዝርዝሩ በትክክል ተሰርዟል';
 $lang['cr_full_name'] = 'ሙሉ ስም';
 $lang['emp_user_id'] = 'የተጠቃሚ መለያ';
 $lang['emp_first_name'] = 'ስም';
@@ -144,6 +148,9 @@ $lang['emp_email'] = 'ኢ-ሜይል';
 /*************************
  * Table: Expense_type
  *************************/
+$lang['expmessage'] = 'የ ወጭው አይነት በትክክል ተመዝግቧል';
+$lang['expupdatedmessage'] = 'የ ወጭው አይነት በትክክል ዘምኗል';
+$lang['expdeletemessage'] = 'የ ወጭው አይነት ከዝርዝሩ በትክክል ተሰርዟል';
 $lang['exp_type_id'] = 'የወጭ አይነት መለያ ቁጥር';
 $lang['exp_type_name'] = 'የወጭ አይነት';
 $lang['exp_type_created_by'] = 'የመዘገበው';
@@ -244,10 +251,11 @@ $lang['sale_id'] = 'መለያ ቁጥር';
  * Table: Usergroup
  *************************/
 $lang['id'] = '';
-$lang['group_user_id'] = '';
-$lang['group_id'] = '';
+$lang['Usergroup'] = 'የተጠቃሚ አይነት';
+$lang['group_user_id'] = 'የተጠቃሚ መለያ ቁጥር';
+$lang['group_id'] = 'የተጠቃሚ መደብ';
 $lang['group_created_by'] = '';
-$lang['group_remark'] = '';
+$lang['group_remark'] = 'ማስታወሻ';
 $lang['group_created_date'] = '';
 /*************************
  * Table: Users

@@ -68,7 +68,8 @@ $this->form_validation->set_rules( 'emp_birth_date', lang('emp_birth_date'), 're
 $this->form_validation->set_rules( 'emp_hire_date', lang('emp_hire_date'), 'required' );
 $this->form_validation->set_rules( 'emp_remark', lang('emp_remark'), 'required' );
 $this->form_validation->set_rules( 'emp_phone', lang('emp_phone'), 'max_length[20]' );
-$this->form_validation->set_rules( 'emp_email', lang('emp_email'), 'max_length[50]' );
+$this->form_validation->set_rules( 'emp_email', lang('emp_email'), 'required|max_length[50]' );
+$this->form_validation->set_rules( 'emp_salary', lang('emp_salary'), 'required|max_length[6]'  );
 $data_post['emp_first_name'] = $this->input->post( 'emp_first_name' );
 $data_post['emp_middle_name'] = $this->input->post( 'emp_middle_name' );
 $data_post['emp_last_name'] = $this->input->post( 'emp_last_name' );
@@ -96,7 +97,15 @@ $this->template->display( 'frame_admin.tpl' );
 elseif ( $this->form_validation->run() == TRUE )
 {
 $insert_id = $this->model_employee->insert( $data_post );
-redirect( 'employee' );
+    $this->template->assign( 'action_mode', 'edit' );
+    $this->template->assign( 'message', lang('empmessage') );
+    $this->template->assign( 'employee_data', $data_post );
+    $this->template->assign( 'employee_fields', $fields );
+    $this->template->assign( 'metadata', $this->model_employee->metadata() );
+    $this->template->assign( 'table_name', 'Employee' );
+    $this->template->assign( 'template', 'form_employee' );
+    $this->template->assign( 'record_id', $id );
+    $this->template->display( 'frame_admin.tpl' );
 }
 break;
 }
@@ -164,7 +173,14 @@ $this->template->display( 'frame_admin.tpl' );
 elseif ( $this->form_validation->run() == TRUE )
 {
 $this->model_employee->update( $id, $data_post );
-redirect( 'employee/show/' . $id );   
+    $this->template->assign( 'action_mode', 'edit' );
+    $this->template->assign( 'message', lang('empupdatemessage') );
+    $this->template->assign( 'employee_data', $data_post );
+    $this->template->assign( 'employee_fields', $fields );
+    $this->template->assign( 'table_name', 'Employee' );
+    $this->template->assign( 'template', 'form_employee' );
+    $this->template->assign( 'record_id', $id );
+    $this->template->display( 'frame_admin.tpl' );
 }
 break;
 }
@@ -179,7 +195,14 @@ switch ( $_SERVER ['REQUEST_METHOD'] )
 {
 case 'GET':
 $this->model_employee->delete( $id );
-redirect( $_SERVER['HTTP_REFERER'] );
+    $this->template->assign( 'action_mode', 'edit' );
+    $fields = $this->model_employee->fields();
+    $this->template->assign( 'employee_fields', $fields );
+    $this->template->assign( 'message', lang('empdeletemessage') );
+    $this->template->assign( 'table_name', 'Employee' );
+    $this->template->assign( 'template', 'form_employee' );
+    $this->template->assign( 'record_id', $id );
+    $this->template->display( 'frame_admin.tpl' );
 break;
 case 'POST':
 $this->model_employee->delete( $this->input->post('delete_ids') );

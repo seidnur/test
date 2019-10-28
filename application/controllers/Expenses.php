@@ -92,7 +92,14 @@ $this->template->display( 'frame_admin.tpl' );
 elseif ( $this->form_validation->run() == TRUE )
 {
 $insert_id = $this->model_expenses->insert( $data_post );
-redirect( 'expenses' );
+    $this->template->assign( 'message', lang('expmessage') );
+    $this->template->assign( 'action_mode', 'create' );
+    $this->template->assign( 'expenses_data', $data_post );
+    $this->template->assign( 'expenses_fields', $fields );
+    $this->template->assign( 'metadata', $this->model_expenses->metadata() );
+    $this->template->assign( 'table_name', 'Expenses' );
+    $this->template->assign( 'template', 'form_expenses' );
+    $this->template->display( 'frame_admin.tpl' );
 }
 break;
 }
@@ -159,7 +166,14 @@ $this->template->display( 'frame_admin.tpl' );
 elseif ( $this->form_validation->run() == TRUE )
 {
 $this->model_expenses->update( $id, $data_post );
-redirect( 'expenses/show/' . $id );   
+    $this->template->assign( 'message', lang('expupdatemessage') );
+    $this->template->assign( 'action_mode', 'create' );
+    $this->template->assign( 'expenses_data', $data_post );
+    $this->template->assign( 'expenses_fields', $fields );
+    $this->template->assign( 'metadata', $this->model_expenses->metadata() );
+    $this->template->assign( 'table_name', 'Expenses' );
+    $this->template->assign( 'template', 'form_expenses' );
+    $this->template->display( 'frame_admin.tpl' );
 }
 break;
 }
@@ -174,7 +188,14 @@ switch ( $_SERVER ['REQUEST_METHOD'] )
 {
 case 'GET':
 $this->model_expenses->delete( $id );
-redirect( $_SERVER['HTTP_REFERER'] );
+    $fields = $this->model_expenses->fields();
+    $this->template->assign( 'message', lang('expdeletemessage') );
+    $this->template->assign( 'action_mode', 'create' );
+       $this->template->assign( 'expenses_fields', $fields );
+    $this->template->assign( 'metadata', $this->model_expenses->metadata() );
+    $this->template->assign( 'table_name', 'Expenses' );
+    $this->template->assign( 'template', 'form_expenses' );
+    $this->template->display( 'frame_admin.tpl' );
 break;
 case 'POST':
 $this->model_expenses->delete( $this->input->post('delete_ids') );
