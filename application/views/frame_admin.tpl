@@ -106,6 +106,7 @@
                                     {/if}
                                 </a>
                             </li>
+
                             <li class="dropdown user user-menu">
                                 <a href="dashboard/switchLanguage/amharic">{lang('AM')}
                                     {if $selected_language=='amharic'}
@@ -113,6 +114,7 @@
                                     {/if}
                                 </a>
                             </li>
+
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <span class="fa fa-user fa-1x"></span>
@@ -152,6 +154,14 @@
                             <li{if isset($table_name)}{if $table_name == 'Import'} class='active'{/if}{/if}><a
                                         href='import'><span class="nav-icon fa fa-table"></span> {lang('Import')} </a>
                             </li>
+                        {/if}{if
+                        ('deleteImport'|in_array:$permission)||
+                        ('createImport'|in_array:$permission)||
+                        ('viewImport'|in_array:$permission)||
+                        ('updateImport'|in_array:$permission)
+                        }
+                        <li{if isset($table_name)}{if $table_name == 'Company'} class='active'{/if}{/if}>
+                            <a href='setting'><span class="nav-icon fa fa-table">{lang('Setting')}</span> </a></li>
                         {/if}
 
                         {if
@@ -162,6 +172,7 @@
                         }
                             <li{if isset($table_name)}{if $table_name == 'Sales'} class='active'{/if}{/if}><a
                                         href='sales'><span class="fa fa-pie-chart"></span>{(lang('sales'))}</a></li>
+
                         {/if}
 
                         {if

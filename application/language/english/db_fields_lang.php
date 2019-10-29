@@ -142,7 +142,11 @@ $lang['permission'] = 'Permissions';
 /*************************
  * Table: Import
  *************************/
-
+$lang['Setting'] = 'Setting';
+$lang['service_charge_value'] = 'service charge';
+$lang['vat_charge_value'] = 'vat';
+$lang['currency'] = 'currency';
+$lang['id'] = 'id';
 $lang['imp_id'] = 'id';
 $lang['impmessage'] = 'imported item successfully saved';
 $lang['impmessageupdate'] = 'imported item list successfully updated';
@@ -168,7 +172,7 @@ $lang['imp_deleted'] = 'is it lost?';
 /*************************
  * Table: Items
  *************************/
-
+$lang['item'] = 'item';
 $lang['itemmessage'] = 'item successfully saved';
 $lang['itemdelete'] = 'item list successfully deleted';
 $lang['itemupdate'] = 'item list successfully updated';

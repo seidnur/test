@@ -3,17 +3,15 @@
         <div class="inner">
             <a class="btn btn-warning btn-sm" href="items"><span class="fa fa-list"></span> {lang('listing')}</a>
             <a class="btn btn-sm btn-success" href="items/create/"> <span class="fa fa-plus"></span> {lang('new_record')}</a>
-
           <h3>
                 {if $selected_language=='english'}
                    {lang('details')} {lang('of')} {lang("$table_name")} {lang('record')} #{$id}
                 {elseif $selected_language=='amharic'}
-                          {lang('of')}{lang("$table_name")} {lang('record')} #{$id} {lang('details')}  
+                    {lang('of')}{lang("$table_name")} {lang('record')} #{$id} {lang('details')}
                 {/if}    
-                </h3> 
-
+                </h3>
             <table class="table table-responsive" width="50%">
-            <tr class="{cycle values='odd,even'}">
+                  <tr class="{cycle values='odd,even'}">
                             <td>{$items_fields.itm_id}:</td>
                             <td>{$items_data.itm_id}</td>
                         </tr><tr class="{cycle values='odd,even'}">

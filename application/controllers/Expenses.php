@@ -72,7 +72,7 @@ $data_post['year'] = $this->input->post( 'year' );
 $data_post['Month'] = $this->input->post( 'Month' );
 $data_post['amount'] = $this->input->post( 'amount' );
 $data_post['paid'] = $this->input->post( 'paid' );
-$data_post['created_by'] = $this->input->post( 'created_by' )==null?0:1;
+$data_post['created_by'] = $this->user;
 $data_post['created_date'] = date('Y-m-d');
 $data_post['remark'] = $this->input->post( 'remark' );
 if ( $this->form_validation->run() == FALSE )
@@ -137,17 +137,17 @@ $this->form_validation->set_rules( 'year', lang('year'), 'required|max_length[11
 $this->form_validation->set_rules( 'Month', lang('Month'), 'required|max_length[11]|integer' );
 $this->form_validation->set_rules( 'amount', lang('amount'), 'required|numeric' );
 $this->form_validation->set_rules( 'paid', lang('paid'), 'required|max_length[11]|integer' );
-$this->form_validation->set_rules( 'created_by', lang('created_by'), 'required|max_length[11]|integer' );
-$this->form_validation->set_rules( 'created_date', lang('created_date'), 'required' );
 $this->form_validation->set_rules( 'remark', lang('remark'), 'required' );
 $data_post['exp_reason_id'] = $this->input->post( 'exp_reason_id' );
 $data_post['year'] = $this->input->post( 'year' );
 $data_post['Month'] = $this->input->post( 'Month' );
 $data_post['amount'] = $this->input->post( 'amount' );
 $data_post['paid'] = $this->input->post( 'paid' );
-$data_post['created_by'] = $this->input->post( 'created_by' );
-$data_post['created_date'] = $this->input->post( 'created_date' );
 $data_post['remark'] = $this->input->post( 'remark' );
+
+    $data_post['expense_last_updater'] = $this->user;
+    $data_post['expense_last_update'] = date('Y-m-d');
+
 if ( $this->form_validation->run() == FALSE )
 {
 $errors = validation_errors();
@@ -167,12 +167,13 @@ elseif ( $this->form_validation->run() == TRUE )
 {
 $this->model_expenses->update( $id, $data_post );
     $this->template->assign( 'message', lang('expupdatemessage') );
-    $this->template->assign( 'action_mode', 'create' );
-    $this->template->assign( 'expenses_data', $data_post );
+    $data = $this->model_expenses->get( $id );
+    $fields = $this->model_expenses->fields( TRUE );
+    $this->template->assign( 'id', $id );
     $this->template->assign( 'expenses_fields', $fields );
-    $this->template->assign( 'metadata', $this->model_expenses->metadata() );
+    $this->template->assign( 'expenses_data', $data );
     $this->template->assign( 'table_name', 'Expenses' );
-    $this->template->assign( 'template', 'form_expenses' );
+    $this->template->assign( 'template', 'show_expenses' );
     $this->template->display( 'frame_admin.tpl' );
 }
 break;
@@ -182,24 +183,22 @@ break;
 *  DELETE RECORD(S)
 *  The 'delete' method of the model accepts int and array  
 */
-function delete( $id = FALSE )
+function delete( $id = FALSE,$page=0 )
 {
 switch ( $_SERVER ['REQUEST_METHOD'] )
 {
 case 'GET':
 $this->model_expenses->delete( $id );
-    $fields = $this->model_expenses->fields();
     $this->template->assign( 'message', lang('expdeletemessage') );
-    $this->template->assign( 'action_mode', 'create' );
-       $this->template->assign( 'expenses_fields', $fields );
-    $this->template->assign( 'metadata', $this->model_expenses->metadata() );
-    $this->template->assign( 'table_name', 'Expenses' );
-    $this->template->assign( 'template', 'form_expenses' );
-    $this->template->display( 'frame_admin.tpl' );
-break;
-case 'POST':
-$this->model_expenses->delete( $this->input->post('delete_ids') );
-redirect( $_SERVER['HTTP_REFERER'] );
+    $this->model_expenses->pagination( TRUE );
+    $data_info = $this->model_expenses->lister( $page );
+    $fields = $this->model_expenses->fields( TRUE );
+    $this->template->assign( 'pager', $this->model_expenses->pager );
+    $this->template->assign( 'expenses_fields', $fields );
+    $this->template->assign( 'expenses_data', $data_info );
+    $this->template->assign( 'table_name', 'expenses' );
+    $this->template->assign( 'template', 'list_expenses' );
+    $this->template->display( 'frame_admin.tpl' );;
 break;
 }
 }

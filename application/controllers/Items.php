@@ -170,18 +170,14 @@ $this->template->assign('record_id', $id);
 $this->template->display('frame_admin.tpl');
 } elseif ($this->form_validation->run() == TRUE) {
 $this->model_items->update($id, $data_post);
-    $brands_set = $this->model_items->related_brands();
-    $categories_set = $this->model_items->related_categories();
-    $this->template->assign('related_brands', $brands_set);
-    $this->template->assign('related_categories', $categories_set);
-    $this->template->assign('action_mode', 'edit');
-    $this->template->assign('message', lang('itemupdate'));
-    $this->template->assign('items_data', $data_post);
+    $data = $this->model_items->get($id);
+    $fields = $this->model_items->fields(TRUE);
+    $this->template->assign('id', $id);
     $this->template->assign('items_fields', $fields);
-    $this->template->assign('metadata', $this->model_items->metadata());
-    $this->template->assign('table_name', 'Items');
-    $this->template->assign('template', 'form_items');
-    $this->template->assign('record_id', $id);
+    $this->template->assign('message', lang('itemupdate'));
+    $this->template->assign('items_data', $data);
+    $this->template->assign('table_name', 'item');
+    $this->template->assign('template', 'show_items');
     $this->template->display('frame_admin.tpl');
 //redirect('items/show/' . $id);
 }
@@ -197,15 +193,15 @@ function delete ($id = FALSE)
     $fields = $this->model_items->fields();
 switch ($_SERVER ['REQUEST_METHOD']) {
 case 'GET':
-$this->model_items->delete($id);
-
-    $this->template->assign('action_mode', 'edit');
+$this->model_items->delete($id,$page=0);
     $this->template->assign('message', lang('itemdelete'));
+    $data_info = $this->model_items->lister($page);
+    $fields = $this->model_items->fields(TRUE);
+    $this->template->assign('pager', $this->model_items->pager);
     $this->template->assign('items_fields', $fields);
-    $this->template->assign('metadata', $this->model_items->metadata());
+    $this->template->assign('items_data', $data_info);
     $this->template->assign('table_name', 'Items');
-    $this->template->assign('template', 'form_items');
-    $this->template->assign('record_id', $id);
+    $this->template->assign('template', 'list_items');
     $this->template->display('frame_admin.tpl');
 break;
 }

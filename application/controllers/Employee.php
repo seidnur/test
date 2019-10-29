@@ -58,6 +58,7 @@ break;
 */
 case 'POST':
 $fields = $this->model_employee->fields();
+    //$this->form_validation->set_error_delimiters('<div class="alert alert-success">', '</div>');
 /* we set the rules */
 /* don't forget to edit these */
 $this->form_validation->set_rules( 'emp_first_name', lang('emp_first_name'), 'required|max_length[15]' );
@@ -68,7 +69,8 @@ $this->form_validation->set_rules( 'emp_birth_date', lang('emp_birth_date'), 're
 $this->form_validation->set_rules( 'emp_hire_date', lang('emp_hire_date'), 'required' );
 $this->form_validation->set_rules( 'emp_remark', lang('emp_remark'), 'required' );
 $this->form_validation->set_rules( 'emp_phone', lang('emp_phone'), 'max_length[20]' );
-$this->form_validation->set_rules( 'emp_email', lang('emp_email'), 'required|max_length[50]' );
+$this->form_validation->set_rules( 'emp_email', lang('emp_email'), 'required|is_unique[employee.emp_email]|valid_email',
+    array('is_unique' => 'email is already taken') );
 $this->form_validation->set_rules( 'emp_salary', lang('emp_salary'), 'required|max_length[6]'  );
 $data_post['emp_first_name'] = $this->input->post( 'emp_first_name' );
 $data_post['emp_middle_name'] = $this->input->post( 'emp_middle_name' );

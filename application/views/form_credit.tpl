@@ -1,7 +1,8 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <a class="btn btn-sm btn-warning" href="credit"> <span class="fa fa-liist"></span> {lang('listing')}</a>
-        <a class="btn btn-success btn-sm" href="credit/create/"> <span class="fa fa-plus"></span> {lang('new_record')}</a>
+        <a class="btn btn-success btn-sm" href="credit/create/"> <span class="fa fa-plus"></span> {lang('new_record')}
+        </a>
 
         <div class="inner">
             {if $action_mode == 'create'}
@@ -30,7 +31,6 @@
                                        value="{if isset($credit_data)}{$credit_data.cr_full_name}{/if}"
                                        name="cr_full_name"/>
                             </div>
-
                         </div>
 
                         <div class="form-group">
@@ -39,7 +39,7 @@
                                 <option value="0"> choose Item to Give</option>
                                 {foreach $related_items as $rel}
                                     <option value="{$rel.items_id}"
-                            {if isset($credit_data)}{if $credit_data.cr_product == $rel.items_id} selected="selected"{/if}{/if}>{$rel.items_name}</option>
+                                            {if isset($credit_data)}{if $credit_data.cr_product == $rel.items_id} selected="selected"{/if}{/if}>{$rel.items_name}</option>
                                 {/foreach}
                             </select>
 
@@ -66,16 +66,6 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-
-                        <div class="form-group">
-                            <label>{$credit_fields.cr_total_credit}<span class="error">*</span></label>
-                            <div>
-                                <input class="form-control" type="text" maxlength="255"
-                                       value="{if isset($credit_data)}{$credit_data.cr_total_credit}{/if}"
-                                       name="cr_total_credit"/>
-                            </div>
-
-                        </div>
 
                         <div class="form-group">
                             <label>{$credit_fields.cr_phone_number}<span class="error">*</span></label>
@@ -156,7 +146,8 @@
                             {lang('save')}
                         </button>
                         <span class="text_button_padding">{lang('or')}</span>
-                        <a class="btn btn-default link_button" href="javascript:window.history.back();">{lang('cancel')}</a>
+                        <a class="btn btn-default link_button"
+                           href="javascript:window.history.back();">{lang('cancel')}</a>
                     </div>
                 </div>
             </form>

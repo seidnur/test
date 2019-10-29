@@ -179,6 +179,7 @@ $lang['permission'] = 'ፍቃዶች';
  * Table: Import
  *************************/
 $lang['imp_id'] = 'ገቢ የሆነበት መለያ ቂጥር';
+$lang['importmessage'] = 'ገቢ የሚሆነው እቃ በትክክል ተመዝግቧል';
 $lang['Imports'] = 'ገቢ የሆኑ እቃዎች';
 $lang['imp_item_id'] = 'የእቃው ስም';
 $lang['import_price_exceedes_sale_price'] = 'የአቃው መሸጫ ዋጋ ከተገዛበት ዋጋ መብለጥ አለበት';
@@ -193,6 +194,7 @@ $lang['imp_inserted_by'] = 'የመዘገበው';
 $lang['imp_remark'] = 'ማስታዎሻ';
 $lang['imp_Last_updated_by'] = 'ያስተካከለው';
 $lang['imp_Last_update'] = 'የመጨረሻ ማስተካከያ';
+$lang['Setting'] = 'ህገደንብ';
 $lang['imp_deleted'] = 'የጠፋ ነውን?';
 /*************************
  * Table: Items

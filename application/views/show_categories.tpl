@@ -38,7 +38,7 @@
             </table>
             <div class="actions-bar wat-cf">
                 <div class="actions">
-                    <a class="btn btn-warning" href="categories/edit/{$categories_data.cat_id}">
+                    <a class="btn btn-warning" href="categories/edit/{$id}">
                         <span class="fa fa-edit"></span> Edit record
                     </a>
                 </div>

@@ -60,7 +60,7 @@ class Sales extends MY_controller
             "odata.metadata" => "",
             "value" => $data_info
         );
-       // echo json_encode($resultObject);
+        // echo json_encode($resultObject);
     }
 
     function sale($page = 0)
@@ -141,9 +141,9 @@ class Sales extends MY_controller
                 $data_post['sale_imp_id'] = $this->input->post('sale_imp_id');
                 $data_post['Date_sold'] = date('Y-m-d h:m:s');
                 $data_post['soled_by'] = $this->user;
-                echo  $this->input->post('imp_itm_unit_price');
+                echo $this->input->post('imp_itm_unit_price');
                 $data_post['sold_price'] = $this->input->post('sell_price');
-                $data_post['profit'] = $this->input->post('sell_quantity')*($this->input->post('sell_price') - $this->input->post('imp_itm_unit_price'));
+                $data_post['profit'] = $this->input->post('sell_quantity') * ($this->input->post('sell_price') - $this->input->post('imp_itm_unit_price'));
                 $data_post['Sale_sub_total'] = intval($data_post['sale_item_amount']) * floatval($data_post['sold_price']);
 
                 if ($this->form_validation->run() == FALSE) {
@@ -235,6 +235,16 @@ class Sales extends MY_controller
                     $this->template->display('frame_admin.tpl');
                 } elseif ($this->form_validation->run() == TRUE) {
                     $this->model_sales->update($id, $data_post);
+                    $data = $this->model_sales->get($id);
+                    $fields = $this->model_sales->fields();
+                    $this->template->assign('action_mode', 'edit');
+                    $this->template->assign('sales_data', $data);
+                    $this->template->assign('sales_fields', $fields);
+                    $this->template->assign('metadata', $this->model_sales->metadata());
+                    $this->template->assign('table_name', 'Sales');
+                    $this->template->assign('template', 'form_sales');
+                    $this->template->assign('record_id', $id);
+                    $this->template->display('frame_admin.tpl');
 
                 }
                 break;
@@ -245,27 +255,53 @@ class Sales extends MY_controller
      *  DELETE RECORD(S)
      *  The 'delete' method of the model accepts int and array
      */
-    function delete($id = FALSE)
+    function delete($id = FALSE, $page = 0)
     {
 
-           switch ($_SERVER ['REQUEST_METHOD']) {
+        switch ($_SERVER ['REQUEST_METHOD']) {
             case 'GET':
 
                 $confirmation = $this->model_sales->delete($id);
-                  if($confirmation)
-                  {
-                      $this->template->assign('action_mode', 'edit');
-                      $this->template->assign('metadata', $this->model_sales->metadata());
-                      $this->template->assign('table_name', 'Sales');
-                      $this->template->assign('message', lang('salesdelete'));
-                      $this->template->assign('template', 'form_sales');
-                      $this->template->assign('record_id', $id);
-                      $this->template->display('frame_admin.tpl');
-              }
-              
+                if ($confirmation) {
+
+                    $this->template->assign('message', lang('salesdelete'));
+                    $this->model_sales->pagination(TRUE);
+                    $data_info = $this->model_sales->lister($page);
+                    $fields = $this->model_sales->fields(TRUE);
+                    $todaySales = $this->model_sales->salesCount($this->currentDate);
+                    $thisWeek = date('Y-m-d', strtotime("-7 days"));
+                    $thisWeekSales = $this->model_sales->salesCount(false, $thisWeek, $this->currentDate);
+                    $thisMonth = date('Y-m-d', strtotime("-30 days"));
+                    $thisMonthSales = $this->model_sales->salesCount(false, $thisMonth, $this->currentDate);
+
+                    $thisYear = date('Y-m-d', strtotime("-365 days"));
+                    $thisYearSales = $this->model_sales->salesCount(false, $thisYear, $this->currentDate);
+
+                    $this->template->assign('this_week_sales', $thisWeekSales);
+                    $this->template->assign('this_day_sales', $todaySales);
+                    $this->template->assign('this_month_sales', $thisMonthSales);
+                    $this->template->assign('this_year_sales', $thisYearSales);
+
+
+                    $this->template->assign('this_week', date('w'));
+                    $this->template->assign('this_day', date('d'));
+                    $this->template->assign('this_month', date('m'));
+                    $this->template->assign('this_year', date('Y'));
+
+                    $searchParams = array(array("lg_name", 'number'));
+                    $searchParams = $this->getSearchSetting();
+                    $this->template->assign('search_form', $this->displaySearchForm($searchParams));
+                    $this->template->assign('pager', $this->model_sales->pager);
+                    $this->template->assign('sales_fields', $fields);
+                    $this->template->assign('sales_data', $data_info);
+                    $this->template->assign('table_name', 'Sales');
+                    $this->template->assign('template', 'list_sales');
+                    $this->template->display('frame_admin.tpl');
+                }
+
             case 'POST':
-                  //echo json_encode( $this->model_sales->delete( $this->input->post('delete_ids')));
-                  // redirect( $_SERVER['HTTP_REFERER'] );
+                //echo json_encode( $this->model_sales->delete( $this->input->post('delete_ids')));
+                // redirect( $_SERVER['HTTP_REFERER'] );
                 break;
         }
     }
@@ -326,8 +362,9 @@ class Sales extends MY_controller
         //echo json_encode($data);
     }
 
-    function list_availables(){
-        $selected_item=  $this->input->post('sale_itm_id');
+    function list_availables()
+    {
+        $selected_item = $this->input->post('sale_itm_id');
         $items_set = $this->model_sales->related_items();
         $imports_set = $this->model_sales->import_lister();
         $imports_list = $this->model_sales->import_lister_by_item($selected_item);
@@ -348,8 +385,6 @@ class Sales extends MY_controller
         $this->template->display('frame_admin.tpl');
 
 
-
-
-           }
+    }
 
 }

@@ -66,7 +66,6 @@ $this->form_validation->set_rules( 'cr_full_name', lang('cr_full_name'), 'requir
 $this->form_validation->set_rules( 'cr_product', lang('cr_product'), 'required|max_length[11]|integer' );
 $this->form_validation->set_rules( 'cr_unit_price', lang('cr_unit_price'), 'required|numeric' );
 $this->form_validation->set_rules( 'cr_quantity', lang('cr_quantity'), 'required|max_length[11]|integer' );
-$this->form_validation->set_rules( 'cr_total_credit', lang('cr_total_credit'), 'required|numeric' );
 $this->form_validation->set_rules( 'cr_phone_number', lang('cr_phone_number'), 'required|max_length[11]|integer' );
 $this->form_validation->set_rules( 'cr_address', lang('cr_address'), 'required|max_length[50]' );
 $this->form_validation->set_rules( 'cr_given_date', lang('cr_given_date'), 'required' );
@@ -74,28 +73,17 @@ $this->form_validation->set_rules( 'cr_customer_gender', lang('cr_customer_gende
 $this->form_validation->set_rules( 'cr_return_date', lang('cr_return_date'), 'required' );
 $this->form_validation->set_rules( 'cr_actual_return_date', lang('cr_actual_return_date'), 'required' );
 $this->form_validation->set_rules( 'cr_remark', lang('cr_remark'), 'max_length[425]' );
-$data_post['cr_full_name'] = $this->input->post( 'cr_full_name' );
-$data_post['cr_product'] = $this->input->post( 'cr_product' );
-$data_post['cr_unit_price'] = $this->input->post( 'cr_unit_price' );
-$data_post['cr_quantity'] = $this->input->post( 'cr_quantity' );
-$data_post['cr_total_credit'] = $this->input->post( 'cr_unit_price' ) *$this->input->post( 'cr_unit_price' );
-$data_post['cr_phone_number'] = $this->input->post( 'cr_phone_number' );
-$data_post['cr_address'] = $this->input->post( 'cr_address' );
-$data_post['cr_given_date'] = $this->input->post( 'cr_given_date' );
-$data_post['cr_customer_gender'] = $this->input->post( 'cr_customer_gender' );
-$data_post['cr_return_date'] = $this->input->post( 'cr_return_date' );
-$data_post['cr_actual_return_date'] = $this->input->post( 'cr_actual_return_date' );
-$data_post['cr_created_by'] = $this->user;
-$data_post['cr_remark'] = $this->input->post( 'cr_remark' );
-$data_post['cr_status'] = 0;
+
+
 if ( $this->form_validation->run() == FALSE )
 {
 $errors = validation_errors();
 $items_set = $this->model_credit->related_items();
+
 $this->template->assign( 'related_items', $items_set );
 $this->template->assign( 'errors', $errors );
 $this->template->assign( 'action_mode', 'create' );
-$this->template->assign( 'credit_data', $data_post );
+
 $this->template->assign( 'credit_fields', $fields );
 $this->template->assign( 'metadata', $this->model_credit->metadata() );
 $this->template->assign( 'table_name', 'Credit' );
@@ -104,6 +92,21 @@ $this->template->display( 'frame_admin.tpl' );
 }
 elseif ( $this->form_validation->run() == TRUE )
 {
+    $data_post['cr_full_name'] = $this->input->post( 'cr_full_name' );
+    $data_post['cr_product'] = $this->input->post( 'cr_product' );
+    $data_post['cr_unit_price'] = $this->input->post( 'cr_unit_price' );
+    $data_post['cr_quantity'] = $this->input->post( 'cr_quantity' );
+    $data_post['cr_phone_number'] = $this->input->post( 'cr_phone_number' );
+    $data_post['cr_address'] = $this->input->post( 'cr_address' );
+    $data_post['cr_given_date'] = $this->input->post( 'cr_given_date' );
+    $data_post['cr_customer_gender'] = $this->input->post( 'cr_customer_gender' );
+    $data_post['cr_return_date'] = $this->input->post( 'cr_return_date' );
+    $data_post['cr_actual_return_date'] = $this->input->post( 'cr_actual_return_date' );
+    $data_post['cr_created_by'] = $this->user;
+    $data_post['cr_remark'] = $this->input->post( 'cr_remark' );
+    $data_post['cr_status'] = 0;
+    $data_post['cr_total_credit']=floatval(floatval($this->input->post( 'cr_unit_price' )*$this->input->post( 'cr_quantity' )));
+//    echo json_encode($data_post);
 $insert_id = $this->model_credit->insert( $data_post );
 redirect( 'credit' );
 }
