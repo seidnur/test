@@ -314,4 +314,9 @@ class Model_employee extends CI_Model
         }
         return $metadata; 
     }
+    function employeeCount()
+    {
+        $this->db->from('employee');
+        return $this->db->count_all_results();
+    }
 }

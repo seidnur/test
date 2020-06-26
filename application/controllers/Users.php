@@ -92,6 +92,7 @@ $this->template->assign( 'errors', $errors );
 $this->template->assign( 'action_mode', 'create' );
 $this->template->assign( 'users_data', $data_post );
 $this->template->assign( 'users_fields', $fields );
+//$this->template->assign( 'message', "User Successfully Created" );
 $this->template->assign( 'metadata', $this->model_users->metadata() );
 $this->template->assign( 'table_name', 'Users' );
 $this->template->assign( 'template', 'form_users' );
@@ -100,7 +101,17 @@ $this->template->display( 'frame_admin.tpl' );
 elseif ( $this->form_validation->run() == TRUE )
 {
 $insert_id = $this->model_users->insert( $data_post );
-   
+    $employee_set = $this->model_users->related_employee();
+    $this->template->assign( 'related_employee', $employee_set );
+
+    $this->template->assign( 'action_mode', 'create' );
+    $this->template->assign( 'users_data', $data_post );
+    $this->template->assign( 'users_fields', $fields );
+    $this->template->assign( 'message', "User Successfully Created" );
+    $this->template->assign( 'metadata', $this->model_users->metadata() );
+    $this->template->assign( 'table_name', 'Users' );
+    $this->template->assign( 'template', 'form_users' );
+    $this->template->display( 'frame_admin.tpl' );
   if($insert_id==true){
 
  		$this->session->set_flashdata('success', 'Successfully created');
@@ -148,10 +159,11 @@ $this->form_validation->set_rules( 'user_name', lang('user_name'), 'required|max
 $this->form_validation->set_rules( 'user_password', lang('user_password'), 'required|max_length[120]' );
 $this->form_validation->set_rules( 'user_emp_id', lang('user_emp_id'), 'required|max_length[11]|integer' );
 $this->form_validation->set_rules( 'user_remark', lang('user_remark'), 'required' );
-$this->form_validation->set_rules( 'user_accout_status', lang('user_accout_status'), '11' );
-$this->form_validation->set_rules( 'user_email', lang('user_email'), '11' );
+$this->form_validation->set_rules( 'user_accout_status', lang('user_accout_status') );
+$this->form_validation->set_rules( 'user_email', lang('user_email'));
 
 $data_post['user_remark'] = $this->input->post( 'user_remark' );
+$data_post['user_password'] = password_hash($this->input->post( 'user_password' ), PASSWORD_BCRYPT);
 $data_post['user_accout_status'] = $this->input->post( 'user_accout_status' );
 $data_post['user_email'] = $this->input->post( 'user_email' );
 if ( $this->form_validation->run() == FALSE )
@@ -170,7 +182,7 @@ $this->template->assign( 'record_id', $id );
 $this->template->display( 'frame_admin.tpl' );
 }
 elseif ( $this->form_validation->run() == TRUE )
-{
+{$this->template->assign( 'message', "User Successfully Created" );
 $this->model_users->update( $id, $data_post );
 redirect( 'users/show/' . $id );   
 }

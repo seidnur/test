@@ -22,9 +22,9 @@ $lang['or'] = 'or';
 $lang['save'] = 'Save';
 $lang['of'] = 'of';
 $lang['Sales'] = 'sales';
-$lang['details'] = 'Details';
+$lang['details'] = 'full information';
 $lang['save_sell'] = 'sell item';
-$lang['top_seller'] = 'Top seller';
+$lang['top_seller'] = 'Winner';
 $lang['no_stock_found'] = 'there is no item for sales
 	                                             <ul>
 	                                              <li>no item in the stock</li>
@@ -34,20 +34,22 @@ $lang['no_stock_found'] = 'there is no item for sales
  * Table names
  *************************/
 $lang['brand_cat_id'] = 'brand category';
-$lang['brands'] = 'Brands';
-$lang['categories'] = 'Categories';
-$lang['credit'] = 'Credit';
+$lang['Tbl_campany'] = 'Company';
+$lang['company_id'] = 'company id';
+$lang['company_name'] = 'company name';
+$lang['company_address'] = 'company address';
+$lang['company_owner'] = 'company owner';
 $lang['employee'] = 'Employee';
 $lang['group'] = 'Group';
 $lang['import'] = 'Imported Item List';
 $lang['Import'] = 'Import Management';
-$lang['items'] = 'Items';
+$lang['bidding_company_id'] = 'company name';
 $lang['expense_type'] = 'Expense Type';
 $lang['Expense_type'] = 'Expense Type';
 $lang['expenses'] = 'Expenses';
 $lang['logins'] = 'Logins';
 $lang['sales'] = 'Sales Management';
-$lang['sale'] = 'Sales';
+
 $lang['item_all'] = 'All Items';
 $lang['usergroup'] = 'User Group';
 $lang['users'] = 'Users';
@@ -70,33 +72,34 @@ $lang['Brands'] = 'Brand';
 
 
 /*************************
- * Table: Categories
+ * Table: Bidding_document
  *************************/
-$lang['Categories'] = 'Categories';
-$lang['editcategories'] = 'categories successfully updated';
-$lang['deletecategories'] = 'categories list deleted';
-$lang['cat_id'] = 'id';
-$lang['cat_name'] = 'Category name';
-$lang['cat_desc'] = 'Description';
+$lang['Bidding_document'] = 'Bidding Document';
+$lang['Document_id'] = 'Document ID';
+$lang['Document_name'] = 'Document Title';
+$lang['Document_image'] = 'Document File';
+$lang['Document_crated_date'] = 'Bid Created Date';
+$lang['Document_inserted_by'] = 'Bid Created By';
 $lang['cat_created_by'] = 'Created by';
-$lang['cat_remark'] = 'Remark';
-$lang['cat_deleted'] = 'Is deleted';
-$lang['cat_created_date'] = 'Date created';
-
-
+$lang['Document_discription'] = 'Bid Description';
+$lang['biding_end_date'] = 'Bid Closed Date';
 /*************************
- * Table: Credit
+ * Table: Bidders
  *************************/
-$lang['cr_id'] = 'ID';
-$lang['cr_full_name'] = 'Full name';
-$lang['cr_product'] = 'Product';
-$lang['cr_unit_price'] = 'Unit price';
-$lang['cr_quantity'] = 'Quantity';
-$lang['cr_total_credit'] = 'Total credit';
-$lang['cr_phone_number'] = 'Phone';
-$lang['cr_address'] = 'Address';
-$lang['cr_given_date'] = 'Given Date';
-$lang['cr_customer_gender'] = 'Gender';
+$lang['Bidders'] = 'Bidder';
+$lang['bidder_id'] = 'Bidder ID';
+$lang['bidders_first_name'] = 'First Name';
+$lang['bidders_last_name'] = 'Last Name';
+$lang['bidders_middel_name'] = 'Middle Name';
+$lang['bidders_gender'] = 'Gender';
+$lang['bidders_address'] = 'Address';
+$lang['bidders_pphone'] = 'Phone';
+$lang['bidders_emaile'] = 'Email';
+$lang['bidders_submit_date'] = 'Register Date';
+$lang['bidders_inserted_money'] = 'Received Money';
+$lang['bidders_comment'] = 'Comment';
+$lang['received_bidder_document'] = 'Document';
+
 // 'cr_customer_gender' has some enum values, you can name them
 $lang['Male'] = 'Male';
 $lang['Female'] = 'Female';
@@ -143,6 +146,7 @@ $lang['permission'] = 'Permissions';
  * Table: Import
  *************************/
 $lang['Setting'] = 'Setting';
+$lang['cmessage'] = 'credit successfully saved';
 $lang['service_charge_value'] = 'service charge';
 $lang['vat_charge_value'] = 'vat';
 $lang['currency'] = 'currency';

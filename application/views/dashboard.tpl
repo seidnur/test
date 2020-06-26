@@ -1,5 +1,5 @@
           <div class="panel panel-default">
-            <div class="panel-body">     
+              <div class="panel-body">
               <h3 class="page-header">Dashboard</h3>            
                 <div class="row">
                         <div class="col-md-3 col-sm-6 col-12">
@@ -18,8 +18,8 @@
                           <div class="info-box bg-orange">
                             <span class="info-box-icon"><i class="fa fa-cog"></i></span>
                             <div class="info-box-content">
-                              <span class="info-box-text">{lang('items')}</span>
-                              <span class="info-box-number">{$itemsCount}</span>
+                              <span class="info-box-text">{lang('Bidders')}</span>
+                              <span class="info-box-number">{$BidderCount}</span>
                             </div>
                             <!-- /.info-box-content -->
                           </div>
@@ -30,8 +30,8 @@
                           <div class="info-box bg-green">
                             <span class="info-box-icon"><i class="fa fa-tasks"></i></span>
                             <div class="info-box-content">
-                              <span class="info-box-text">{lang('categories')}</span>
-                              <span class="info-box-number">{$categoriesCount}</span>
+                              <span class="info-box-text">{lang('employee')}</span>
+                              <span class="info-box-number">{$employeeCount}</span>
                               
                             </div>
                             <!-- /.info-box-content -->
@@ -39,17 +39,7 @@
                           <!-- /.info-box -->
                         </div>
                         <!-- /.col -->
-                      <div class="col-md-3 col-sm-6 col-12">
-                          <div class="info-box bg-green">
-                            <span class="info-box-icon"><i class="fa fa-envelope"></i></span>
-                            <div class="info-box-content">
-                              <span class="info-box-text">{lang('sale')}</span>
-                              <span class="info-box-number">{$saleCount}</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                          </div>
-                          <!-- /.info-box -->
-                      </div>
+
                         <!-- /.col -->
                     </div>
 
@@ -58,25 +48,18 @@
               <!-- Widget: user widget style 1 -->
               <div style="border-radius:10px; border:1px solid rgb(241, 245, 245)">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
-                <div  style="border-radius:2px;  padding:0 2px 5px 2px">
-                   <h3 class="text-capitalize text-center text-success">
-                   {$user}
-                   </h3>
-                  <h5 class="text-center"  style="margin:0 0 0 0">
-                  <span class="badge bg-green"> {lang('top_seller')} </span> </h5>
-                  <hr>
-                </div>
-                <div class="text-center">
-                  <img class="img-circle" style="margin:2px 2px 5px 2px" 
-                   src="{$config.base_url}assets/dist/img/user3-128x128.jpg" alt="User Avatar">
-                </div>
+
+{*                <div class="text-center">*}
+{*                  <img class="img-circle" style="margin:2px 2px 5px 2px" *}
+{*                   src="{$config.base_url}assets/dist/img/user3-128x128.jpg" alt="User Avatar">*}
+{*                </div>*}
                 <div  style="border-radius:10px; background:white; padding:1px 1px 1px 1px">
                   <div class="row">
                 
                     <div class="col-sm-4 border-right">
                       <hr>
                       <div class="description-block">
-                        <h5 class="description-header">3,200 </h5>
+{*                        <h5 class="description-header">3,200 </h5>*}
                         <span class="description-text"> 
                          {lang('sale')}</span>
                       </div>
@@ -86,8 +69,8 @@
               <div class="col-sm-4 border-right">
                      <hr>
                   <div class="description-block">
-                        <h5 class="description-header">13,000</h5>
-                        <span class="description-text">{lang('items')}</span>
+{*                        <h5 class="description-header">13,000</h5>*}
+{*                        <span class="description-text">{lang('items')}</span>*}
                   </div>
                       <!-- /.description-block -->
               </div>
@@ -95,8 +78,8 @@
               <div class="col-sm-4">
                      <hr>
                   <div class="description-block">
-                        <h5 class="description-header">3500</h5>
-                        <span class="description-text">{lang('categories')}</span>
+{*                        <h5 class="description-header">3500</h5>*}
+{*                        <span class="description-text">{lang('categories')}</span>*}
                   </div>
                       <!-- /.description-block -->
               </div>

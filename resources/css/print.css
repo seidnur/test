@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+.panel-heading, a ,form,.panel, title,.header, header,footer,#panel url { 
+width: auto; 
+margin: 0; 
+padding: 0;
+display: none;
+}
+p,strong
+{
+font-size: 11pt !important; 
+}

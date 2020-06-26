@@ -5,18 +5,11 @@
 		function __construct ()
 		{
 			parent::__construct();
-
 			$this->load->database();
 			$this->load->library('template');
 			$this->load->helper('url');
 			$this->load->model('Model_auth');
-
-
-			//        // Quick logged in test, if check() recieves true, then it redirects to the index page
-			//		$this->load->model( 'model_auth' );
-			//		$this->template->assign( 'logged_in', $this->model_auth->check( FALSE ) );
 		}
-
 		/**
 		 *  Validate login
 		 */

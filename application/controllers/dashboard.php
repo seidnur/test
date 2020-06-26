@@ -9,10 +9,10 @@ class Dashboard extends MY_controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('model_sales');
-        $this->load->model('Model_items');
-
-        $this->load->model('Model_categories');
+//        $this->load->model('model_sales');
+$this->load->model('Model_bidders');
+//
+      $this->load->model('Model_employee');
         $this->load->model('Model_users');
     }
 
@@ -29,9 +29,9 @@ class Dashboard extends MY_controller
         $this->template->assign('template', 'dashboard');
 
         $this->template->assign('usersCount', $this->Model_users->usersCount());
-        $this->template->assign('saleCount', $this->model_sales->salesCount());
-        $this->template->assign('categoriesCount', $this->Model_categories->categoriesCount());
-        $this->template->assign('itemsCount',$this->Model_items->itemsCount());
+//        $this->template->assign('saleCount', $this->model_sales->salesCount());
+    $this->template->assign('employeeCount', $this->Model_employee->employeeCount());
+     $this->template->assign('BidderCount',$this->Model_bidders->BidderCount());
         $this->template->display('frame_admin.tpl');
     }
 

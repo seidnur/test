@@ -38,108 +38,6 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td> {lang('Items')}</td>
-                        <td>
-                            <input type="checkbox" name="permission[]" id="permission"
-                                    {if 'createItem'|in_array:$permission_data } checked="checked" {/if}
-                                   value="createItem">
-                        </td>
-                        <td>
-                            <input type="checkbox" name="permission[]" id="permission"
-                                   {if 'updateItem'|in_array:$permission_data } checked="checked"
-                                    {/if}
-                                    value="updateItem">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'viewItem'|in_array:$permission_data } checked="checked" {/if}
-                                   value="viewItem">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'deleteItem'|in_array:$permission_data } checked="checked" {/if}
-                                   value="deleteItem">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{lang('categories')}</td>
-                        <td>
-                            <input type="checkbox" name="permission[]" id="permission"
-                                    {if 'createCategory'|in_array:$permission_data } checked="checked" {/if}
-                                   value="createCategory">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'updateCategory'|in_array:$permission_data } checked="checked" {/if}
-                                   value="updateCategory">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'viewCategory'|in_array:$permission_data } checked="checked" {/if}
-                                   value="viewCategory">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'deleteCategory'|in_array:$permission_data } checked="checked" {/if}
-                                   value="deleteCategory">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{lang('import')}</td>
-                        <td>
-                            <input type="checkbox" name="permission[]" id="permission"
-                                    {if 'createImport'|in_array:$permission_data } checked="checked" {/if}
-                                   value="createImport">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'updateImport'|in_array:$permission_data } checked="checked" {/if}
-                                   value="updateImport">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'viewImport'|in_array:$permission_data } checked="checked" {/if}
-                                   value="viewImport">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'deleteImport'|in_array:$permission_data } checked="checked" {/if}
-                                   value="deleteImport">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{lang('credit')}</td> 
-                        <td>
-                            <input type="checkbox" name="permission[]" id="permission"
-                                    {if 'createCredit'|in_array:$permission_data } checked="checked" {/if}
-                                   value="createCredit">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'updateCredit'|in_array:$permission_data } checked="checked" {/if}
-                                   value="updateCredit">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'viewCredit'|in_array:$permission_data } checked="checked" {/if}
-                                   value="viewCredit">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'deleteCredit'|in_array:$permission_data } checked="checked" {/if}
-                                   value="deleteCredit">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{lang('expenses')}</td>
-                        <td>
-                            <input type="checkbox" name="permission[]" id="permission"
-                                    {if 'createExpense'|in_array:$permission_data } checked="checked" {/if}
-                                   value="createExpense">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'updateExpense'|in_array:$permission_data } checked="checked" {/if}
-                                   value="updateExpense">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'viewExpense'|in_array:$permission_data } checked="checked" {/if}
-                                   value="viewExpense">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'deleteExpense'|in_array:$permission_data } checked="checked" {/if}
-                                   value="deleteExpense">
-                        </td>
-                    </tr>
-                    <tr> 
                         <td>{lang('employee')}</td>
                         <td>
                             <input type="checkbox" name="permission[]" id="permission"
@@ -160,48 +58,11 @@
                         </td>
                     </tr>
                    
-                       <tr>
-                        <td>{lang('expense_type')}</td> 
-                        <td>
-                            <input type="checkbox" name="permission[]" id="permission"
-                                    {if 'createExpenseType'|in_array:$permission_data } checked="checked" {/if}
-                                   value="createExpenseType">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'updateExpenseType'|in_array:$permission_data } checked="checked" {/if}
-                                   value="updateExpenseType">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'viewExpenseType'|in_array:$permission_data } checked="checked" {/if}
-                                   value="viewExpenseType">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'deleteExpenseType'|in_array:$permission_data } checked="checked" {/if}
-                                   value="deleteExpenseType">
-                        </td>
-                    </tr>
+
+
+
                      <tr>
-                        <td>{lang('zeka')}</td> 
-                        <td>
-                            <input type="checkbox" name="permission[]" id="permission"
-                                    {if 'createZeka'|in_array:$permission_data } checked="checked" {/if}
-                                   value="createZeka">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'updateZeka'|in_array:$permission_data } checked="checked" {/if}
-                                   value="updateZeka">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'viewZeka'|in_array:$permission_data } checked="checked" {/if}
-                                   value="viewZeka">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'deleteZeka'|in_array:$permission_data } checked="checked" {/if}
-                                   value="deleteZeka">
-                        </td>
-                    </tr>
-                     <tr>
-                        <td>{lang('brands')}</td>  
+                        <td>{lang('Tbl_campany')}</td>
                         <td>
                             <input type="checkbox" name="permission[]" id="permission"
                                     {if 'createBrand'|in_array:$permission_data } checked="checked" {/if}
@@ -220,26 +81,7 @@
                                    value="deleteBrand">
                         </td>
                     </tr>
-                      <tr>
-                        <td>{lang('sales')}</td>
-                        <td>
-                            <input type="checkbox" name="permission[]" id="permission"
-                                    {if 'createSale'|in_array:$permission_data } checked="checked" {/if}
-                                   value="createSale">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'updateSale'|in_array:$permission_data } checked="checked" {/if}
-                                   value="updateSale">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                             {if 'viewSale'|in_array:$permission_data } checked="checked" {/if}
-                                   value="viewSale">
-                        </td>
-                        <td><input type="checkbox" name="permission[]" id="permission"
-                                    {if 'deleteSale'|in_array:$permission_data } checked="checked" {/if}
-                                   value="deleteSale">
-                        </td>
-                    </tr>
+
                       <tr>
                         <td>{lang('group')}</td> 
                         <td>
@@ -319,6 +161,44 @@
                         <td><input type="checkbox" name="permission[]" id="permission"
                                     {if 'deletePermission'|in_array:$permission_data } checked="checked" {/if}
                                    value="deletePermission">
+                        </td>
+                    </tr>            <tr>
+                        <td> {lang('Bidding_document')}</td>
+                        <td>
+                            <input type="checkbox" name="permission[]" id="permission"
+                                    {if 'createBidding_document'|in_array:$permission_data } checked="checked" {/if}
+                                   value="createBidding_document">
+                        </td>
+                        <td><input type="checkbox" name="permission[]" id="permission"
+                                    {if 'updateBidding_document'|in_array:$permission_data } checked="checked" {/if}
+                                   value="updateBidding_document">
+                        </td>
+                        <td><input type="checkbox" name="permission[]" id="permission"
+                                    {if 'viewBidding_document'|in_array:$permission_data } checked="checked" {/if}
+                                   value="viewBidding_document">
+                        </td>
+                        <td><input type="checkbox" name="permission[]" id="permission"
+                                    {if 'deleteBidding_document'|in_array:$permission_data } checked="checked" {/if}
+                                   value="deleteBidding_document">
+                        </td>
+                    </tr> <tr>
+                        <td> {lang('Bidders')}</td>
+                        <td>
+                            <input type="checkbox" name="permission[]" id="permission"
+                                    {if 'createBidders'|in_array:$permission_data } checked="checked" {/if}
+                                   value="createBidders">
+                        </td>
+                        <td><input type="checkbox" name="permission[]" id="permission"
+                                    {if 'updateBidders'|in_array:$permission_data } checked="checked" {/if}
+                                   value="updateBidders">
+                        </td>
+                        <td><input type="checkbox" name="permission[]" id="permission"
+                                    {if 'viewBidders'|in_array:$permission_data } checked="checked" {/if}
+                                   value="viewBidders">
+                        </td>
+                        <td><input type="checkbox" name="permission[]" id="permission"
+                                    {if 'deleteBidders'|in_array:$permission_data } checked="checked" {/if}
+                                   value="deleteBidders">
                         </td>
                     </tr>
 

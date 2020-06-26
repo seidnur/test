@@ -1,8 +1,10 @@
+<?php ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>{$config.app_name}</title>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+    {$config.app_name_long}</title>
     <base href="{$config.base_url}"/>
     <link rel="icon" href="{$config.base_url}assets/icon/favicon.ico">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -14,8 +16,11 @@
     <link href="{$config.base_url}assets/jquery-ui/css/jquery-ui.min.css" rel="stylesheet">
     <link href="{$config.base_url}assets/jquery-ui/css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
     <link href="{$config.base_url}assets/dist/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{$config.base_url}assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css"/>
 
-    <style type="text/css">
+    <link href="{$config.base_url}assets/exportdatatable/buttons.dataTables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{$config.base_url}assets/exportdatatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+     <style type="text/css">
         td[class="td-width"] {
             width: 15%;
         }
@@ -67,8 +72,16 @@
             background-color: #acf;
         }
     </style>
+    <script type="text/javascript" src="assets/exportdatatable/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="assets/exportdatatable/buttons.print.min.js"></script>
+    <script type="text/javascript" src="assets/exportdatatable/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="assets/exportdatatable/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="assets/exportdatatable/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="assets/exportdatatable/jszip.min.js"></script>
+    <script type="text/javascript" src="assets/exportdatatable/pdfmake.min.js"></script>
+    <script type="text/javascript" src="assets/exportdatatable/vfs_fonts.js"</script>
+
     <script type="text/javascript" src="assets/js/jQuery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/dist/js/app.js"></script>
     <script type="text/javascript" src="iscaffold/js/main.js"></script>
@@ -77,7 +90,26 @@
     <script type="text/javascript" src="assets/dist/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="assets/dist/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="assets/chartjs/Chart.js"></script>
+
+
+     <script type="text/javascript">
+            $(document).ready(function () {
+                $('table').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copyHtml5',
+                        'excelHtml5',
+                        'csvHtml5',
+                        'print',
+                        'pdfHtml5'
+                    ]
+                });
+            });
+        </script>
 </head>
+<div class="text-center">
+    <img src="{$config.base_url}assets/dist/img/st marr.jpg" alt="User Avatar" style="margin: 2px 2px 2px 2px" height="100px" width="100%">
+</div>
 {if $logged_in == true}
     <body class="skin-black sidebar-mini">
     <div class="wrapper">
@@ -85,7 +117,7 @@
             <!-- Logo -->
             <a href="{$config.base_url}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"> <b>{$config.app_name}</b></span>
+                <span class="logo-mini"> <b>{$config.app_name_long}</b></span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><b> <span class="fa fa-th-large"></span> {$config.app_name}</b></span>
             </a>
@@ -96,7 +128,10 @@
                     <span class="sr-only">Toggle navigation</span>
                 </a>
                 {if $logged_in == true}
+
+
                     <div class="navbar-custom-menu">
+
                         <ul class="nav navbar-nav">
 
                             <li class="dropdown user user-menu active">
@@ -107,16 +142,16 @@
                                 </a>
                             </li>
 
-                            <li class="dropdown user user-menu">
-                                <a href="dashboard/switchLanguage/amharic">{lang('AM')}
-                                    {if $selected_language=='amharic'}
-                                        <span class="text-success success fa fa-check-circle"></span>
-                                    {/if}
-                                </a>
-                            </li>
+{*                            <li class="dropdown user user-menu">*}
+{*                                <a href="dashboard/switchLanguage/amharic">{lang('AM')}*}
+{*                                    {if $selected_language=='amharic'}*}
+{*                                        <span class="text-success success fa fa-check-circle"></span>*}
+{*                                    {/if}*}
+{*                                </a>*}
+{*                            </li>*}
 
                             <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="Logout" class="dropdown-toggle" data-toggle="dropdown">
                                     <span class="fa fa-user fa-1x"></span>
                                     <span class="text-capitalize text-right">  {lang('welcome')} {if isset($user)} {$user} {/if}</span>
                                 </a>
@@ -124,7 +159,7 @@
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="{$config.base_url}changePassword"><i
+                                            <a href="{$config.base_url}Users/"><i
                                                         class="fa fa-key"></i> Change Password</a>
                                         </div>
                                         <div class="pull-right">
@@ -145,55 +180,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     {if isset($permission)}
-                        {if
-                        ('deleteImport'|in_array:$permission)||
-                        ('createImport'|in_array:$permission)||
-                        ('viewImport'|in_array:$permission)||
-                        ('updateImport'|in_array:$permission)
-                        }
-                            <li{if isset($table_name)}{if $table_name == 'Import'} class='active'{/if}{/if}><a
-                                        href='import'><span class="nav-icon fa fa-table"></span> {lang('Import')} </a>
-                            </li>
-                        {/if}{if
-                        ('deleteImport'|in_array:$permission)||
-                        ('createImport'|in_array:$permission)||
-                        ('viewImport'|in_array:$permission)||
-                        ('updateImport'|in_array:$permission)
-                        }
-                        <li{if isset($table_name)}{if $table_name == 'Company'} class='active'{/if}{/if}>
-                            <a href='setting'><span class="nav-icon fa fa-table">{lang('Setting')}</span> </a></li>
-                        {/if}
 
-                        {if
-                        ('deleteSale'|in_array:$permission)||
-                        ('createSale'|in_array:$permission)||
-                        ('viewSale'|in_array:$permission)||
-                        ('updateSale'|in_array:$permission)
-                        }
-                            <li{if isset($table_name)}{if $table_name == 'Sales'} class='active'{/if}{/if}><a
-                                        href='sales'><span class="fa fa-pie-chart"></span>{(lang('sales'))}</a></li>
-
-                        {/if}
-
-                        {if
-                        ('deleteItem'|in_array:$permission)||
-                        ('createItem'|in_array:$permission)||
-                        ('viewItem'|in_array:$permission)||
-                        ('updateItem'|in_array:$permission)
-                        }
-                            <li{if isset($table_name)}{if $table_name == 'Items'} class='active'{/if}{/if}><a
-                                        href='items'><span class="fa fa-list"></span>{lang('inventory')}</a></li>
-                        {/if}
-                        {if
-                        ('deleteCategory'|in_array:$permission)||
-                        ('createCategory'|in_array:$permission)||
-                        ('viewCategory'|in_array:$permission)||
-                        ('updateCategory'|in_array:$permission)
-                        }
-                            <li{if isset($table_name)}{if $table_name == 'Categories'} class='active'{/if}{/if}><a
-                                        href='categories'><span class="fa fa-filter"></span> {lang('categories')}</a>
-                            </li>
-                        {/if}
 
                         {if
                         ('deleteBrand'|in_array:$permission)||
@@ -201,31 +188,13 @@
                         ('viewBrand'|in_array:$permission)||
                         ('updateBrand'|in_array:$permission)
                         }
-                            <li{if isset($table_name)}{if $table_name == 'Brands'} class='active'{/if}{/if}><a
-                                        href='brands'><span class="fa fa-check-circle"></span> {lang('brands')}</a></li>
+                            <li{if isset($table_name)}{if $table_name == 'Tbl_campany'} class='active'{/if}{/if}><a
+                                        href='Tbl_campany'><span class="fa fa-check-circle"></span> {lang('Tbl_campany')}</a></li>
                         {/if}
 
-                        {if
-                        ('deleteExpense'|in_array:$permission)||
-                        ('createExpense'|in_array:$permission)||
-                        ('viewExpense'|in_array:$permission)||
-                        ('updateExpense'|in_array:$permission)
-                        }
-                            <li{if isset($table_name)}{if $table_name == 'Expenses'} class='active'{/if}{/if}><a
-                                        href='expenses'><span class="fa fa-paperclip"></span>{lang('expenses')}</a></li>
-                        {/if}
 
-                        {if
-                        ('deleteCredit'|in_array:$permission)||
-                        ('createCredit'|in_array:$permission)||
-                        ('viewCredit'|in_array:$permission)||
-                        ('updateCredit'|in_array:$permission)
-                        }
-                            <li{if isset($table_name)}{if $table_name == 'Credit'} class='active'{/if}{/if}><a
-                                        href='credit'> <span class="fa fa-credit-card"></span>{lang('credit')}</a></li>
-                        {/if}
 
-                        {if
+                          {if
                         ('deleteEmployee'|in_array:$permission)||
                         ('createEmployee'|in_array:$permission)||
                         ('viewEmployee'|in_array:$permission)||
@@ -235,18 +204,16 @@
                                         href='employee'><span class="fa fa-user-md"></span>{lang('employee')}</a></li>
                         {/if}
 
-                        {if
-                        ('deleteExpenseType'|in_array:$permission)||
-                        ('createExpenseType'|in_array:$permission)||
-                        ('viewExpenseType'|in_array:$permission)||
-                        ('updateExpenseType'|in_array:$permission)
-                        }
-                            <li{if isset($table_name)}{if $table_name == 'Expense_type'} class='active'{/if}{/if}><a
-                                        href='expense_type'><span class="fa fa-tachometer"></span>{lang('expense_type')}
-                                </a></li>
-                        {/if}
 
                         {if
+                        ('deleteBidding_document'|in_array:$permission)||
+                        ('createBidding_document'|in_array:$permission)||
+                        ('viewBidding_document'|in_array:$permission)||
+                        ('updateBidding_document'|in_array:$permission)
+                        }
+                            <li{if isset($table_name)}{if $table_name == 'Bidding_document'} class='active'{/if}{/if}><a
+                                        href='Bidding_document'><span class="fa fa-users"></span>{lang('Bidding_document')}</a></li>
+                        {/if}     {if
                         ('deleteGroup'|in_array:$permission)||
                         ('createGroup'|in_array:$permission)||
                         ('viewGroup'|in_array:$permission)||
@@ -254,6 +221,14 @@
                         }
                             <li{if isset($table_name)}{if $table_name == 'Group'} class='active'{/if}{/if}><a
                                         href='group'><span class="fa fa-users"></span>{lang('group')}</a></li>
+                        {/if} {if
+                        ('deleteBidders'|in_array:$permission)||
+                        ('createBidders'|in_array:$permission)||
+                        ('viewBidders'|in_array:$permission)||
+                        ('updateBidders'|in_array:$permission)
+                        }
+                            <li{if isset($table_name)}{if $table_name == 'Bidders'} class='active'{/if}{/if}><a
+                                        href='Bidders'><span class="fa fa-users"></span>{lang('Bidders')}</a></li>
                         {/if}
 
                         {if
@@ -275,16 +250,7 @@
                                         href='users'><span class="fa fa-user"></span>{lang('users')} </a></li>
                         {/if}
 
-                        {if
-                        ('deleteZeka'|in_array:$permission)||
-                        ('createZeka'|in_array:$permission)||
-                        ('viewZeka'|in_array:$permission)||
-                        ('updateZeka'|in_array:$permission)
-                        }
-                            <li{if isset($table_name)}{if $table_name == 'Zeka'} class='active'{/if}{/if}><a
-                                        href='zeka'><span class="fa fa-calculator"></span> {lang('zeka')}</a></li>
-                        {/if}
-                        <!-- <li{if isset($table_name)}{if $table_name == 'Logins'} class='active'{/if}{/if}><a
+                            <!-- <li{if isset($table_name)}{if $table_name == 'Logins'} class='active'{/if}{/if}><a
 href='logins'><span class="fa fa-list-alt"></span>Logins</a></li> -->
 
                     {/if}
@@ -325,14 +291,14 @@ href='logins'><span class="fa fa-list-alt"></span>Logins</a></li> -->
             <div class="pull-right hidden-xs">
                 <strong>  {$config.app_name_long}</strong>
             </div>
-            <p><strong> Copyright © 2018 All rights reserved.</strong></p>
+            <p><strong> Copyright © 2020 All rights reserved.</strong></p>
 
 
-            <a href="https://twitter.com/birhannega"><span class="fa fa-twitter"> <strong>twitter</strong> </span></a>
-            <a href="https://facebook.com/birhannegacheru"><span
+            <a href="https://twitter.com/auctionsystem"><span class="fa fa-twitter"> <strong>twitter</strong> </span></a>
+            <a href="https://facebook.com/auctionsystem"><span
                         class="fa fa-facebook"> <strong>facebook</strong> </span></a>
-            <a href="https://t.me/birhannega"><span class="fa fa-telegram"> <strong>Telegram</strong> </span></a>
-            <span class="fa fa-phone"></span> +2519-25-47-90-78
+            <a href="https://t.me/auctionsystem"><span class="fa fa-telegram"> <strong>Telegram</strong> </span></a>
+            <span class="fa fa-phone"></span>
 
         </footer>
         {literal}
@@ -342,28 +308,24 @@ href='logins'><span class="fa fa-list-alt"></span>Logins</a></li> -->
                     changeMonth: true,
                     changeYear: true
                 });
-                $(".bdate").datepicker("option", "maxDate", '-17y +0m +0w');
+                $('#submit_date').datepicker({dateFormat:'yy-mm-dd',
+                    changeMonth:true,
+                    changeYear:true
+
+                }); $('#cdate').datepicker({dateFormat:'yy-mm-dd',
+                    changeMonth:true,
+                    changeYear:true
+
+                });$('#edate').datepicker({dateFormat:'yy-mm-dd',
+                    changeMonth:true,
+                    changeYear:true
+
+                });
+               $(".bdate").datepicker("option", "maxDate", '-17y +0m +0w');
 
                 $('.dataTable').dataTable();
             </script>
-            <script type="text/javascript">
-                function check_available_amount(item_id) {
-// alert(item_id);\
-                    $.ajax({
-                        url: "sales/getItemDetails/" + item_id,
-                        dataType: "json",
-                        success: function (response) {
-                            console.log(response);
-                            $('#available').text('Available amount for the selected item is: ' + response['itm_available_quantity']);
-                            $('#sale_item_amount').attr('max', response['itm_available_quantity']);
-                            $('#sale_item_amount').attr('placeholder',
-                                "maximum amount to sell is " + response['itm_available_quantity']);
-                            $('#sold_price').attr('min', response['itm_minimum_price']);
-                            $('#sold_price').attr('max', response['itm_minimum_price']);
-                        }
-                    });
-                }
-            </script>
+
         {/literal}
     </div><!-- container -->
     </body>

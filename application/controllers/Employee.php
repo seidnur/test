@@ -36,9 +36,6 @@ $this->template->assign( 'table_name', 'Employee' );
 $this->template->assign( 'template', 'show_employee' );
 $this->template->display( 'frame_admin.tpl' );
 }
-/**
-*  SHOWS A FROM, AND HANDLES SAVING IT
-*/         
 function create( $id = false )
 {
 $this->load->library('form_validation');
@@ -61,9 +58,9 @@ $fields = $this->model_employee->fields();
     //$this->form_validation->set_error_delimiters('<div class="alert alert-success">', '</div>');
 /* we set the rules */
 /* don't forget to edit these */
-$this->form_validation->set_rules( 'emp_first_name', lang('emp_first_name'), 'required|max_length[15]' );
-$this->form_validation->set_rules( 'emp_middle_name', lang('emp_middle_name'), 'required|max_length[15]' );
-$this->form_validation->set_rules( 'emp_last_name', lang('emp_last_name'), 'required|max_length[15]' );
+$this->form_validation->set_rules( 'emp_first_name', lang('emp_first_name'), 'required|alpha' );
+$this->form_validation->set_rules( 'emp_middle_name', lang('emp_middle_name'), 'required|alpha' );
+$this->form_validation->set_rules( 'emp_last_name', lang('emp_last_name'), 'required|alpha' );
 $this->form_validation->set_rules( 'emp_gender', lang('emp_gender'), 'required|max_length[15]' );
 $this->form_validation->set_rules( 'emp_birth_date', lang('emp_birth_date'), 'required' );
 $this->form_validation->set_rules( 'emp_hire_date', lang('emp_hire_date'), 'required' );

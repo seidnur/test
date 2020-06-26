@@ -23,10 +23,10 @@
 	| a PHP script and you can easily do that on your own.
 	|
 	*/
-	//$config['base_url'] = 'http://192.168.137.1/kass/';
-	$config['base_url'] = 'http://localhost:40/kass/';
-	$config['app_name'] = 'KASS';
-	$config['app_name_long'] ='Kass kitchen Appliances supply';
+
+	$config['base_url'] = 'http://localhost/oas/';
+	$config['app_name'] = 'ONLINE AUCTION SYSTEM';
+	$config['app_name_long'] ='ONLINE AUCTION SYSTEM';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -370,6 +370,7 @@
 	| except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 	|
 	*/
+    $config['sess_driver'] = 'database';
 	$config['sess_driver'] = 'files';
 	$config['sess_cookie_name'] = 'ci_session';
 	$config['sess_expiration'] = 7200;

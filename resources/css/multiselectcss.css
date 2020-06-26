@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-Dec-2017, 05:24:08
+    Author     : user
+*/
+
+.github.ribbon {
+	position: fixed;
+	display: block;
+	top: 40px;
+	right: 0;
+	border: 0;
+	z-index: 1001;
+}
+
+.prettyprint {
+	padding: 10px!important;
+}
+
+#wrap {
+	padding-top: 70px;
+}
+
+#home h1 {
+	margin-bottom: 30px;
+}
+#demo,
+#examples,
+#support,
+#download {
+	padding-top: 40px;
+}
+

@@ -75,7 +75,10 @@ class Model_users extends CI_Model
 		return $this->db->insert_id();
 	}
 	
-
+ function bid_user($data){
+	  $this->db->insert('bid_user',$data);
+	    return $this->db->insert_id();
+ }
 
 	function update ( $id, $data )
 	{

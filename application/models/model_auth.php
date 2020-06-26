@@ -14,9 +14,32 @@ class Model_auth extends CI_Model {
 	 * @param string $email : This is email of the user
 	 * @param string $password : This is encrypted password of the user
 	 */
+    public function loginuser($email, $password)
+    {
+        if ($email && $password) {
+            $sql = "SELECT * FROM bid_user WHERE user_name = ?";
+            $query = $this->db->query($sql, array($email));
+
+            if ($query->num_rows() == 1) {
+                $result = $query->row_array();
+
+                $hash_password = password_verify($password, $result['password']);
+                if ($hash_password === true) {
+                    return $result;
+                } else {
+                    return false;
+                }
+
+
+            } else {
+                return false;
+            }
+        }
+    }
 	function loginMe($email, $password)
 	{
-		$this->db->select('users.*,concat(employee.emp_first_name," ",employee.emp_middle_name," ",employee.emp_last_name) as full_name,
+		$this->db->select('users.*,concat(employee.emp_first_name," 
+		",employee.emp_middle_name," ",employee.emp_last_name) as full_name,
 		usergroup.group_id,group.group_name');
 		$this->db->from('users');
 		$this->db->where('user_name', $email);
@@ -36,6 +59,10 @@ class Model_auth extends CI_Model {
 			return array();
 		}
 	}
+
+
+
+
     /**
      *  Function getPermissionsByGroup
      *  @return array
